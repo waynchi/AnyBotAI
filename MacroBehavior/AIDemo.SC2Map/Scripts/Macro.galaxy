@@ -1,3 +1,11 @@
+
+// This is our Macro State Machine for our AI
+// Our AI decides everything from:
+// 1) Its changing difficulty level (based on opponent skill)
+// 2) Which units to build depending on what the opponent is building
+// 3) What structures to build (we can also choose to take priority in following a certain build order)
+// 4) Pretty much any other decision that needs to be made that's not a trigger
+
 void MacroSetUpStateMachine()
 {
     UtilsSetStateMachine(0, 1, 2); // are there important things to do?

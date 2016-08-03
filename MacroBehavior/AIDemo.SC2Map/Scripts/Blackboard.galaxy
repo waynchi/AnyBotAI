@@ -1,3 +1,6 @@
+
+// These are all the structs used by the rest of the scripts
+
 struct EnemyUnit {
   unit enemy;
   fixed assignedDamage;

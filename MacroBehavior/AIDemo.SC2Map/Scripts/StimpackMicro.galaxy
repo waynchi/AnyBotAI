@@ -1,3 +1,6 @@
+// This is one of the triggers that we used in our game. Specifically, this script decides when a marine should use stimpacks
+// Triggers are essentially events that occur when certain conditions happen in the game.
+
 void StimpackRegisterTriggers() {
 	trigger t = TriggerCreate("StimpackActivate");
 	TriggerAddEventUnitAcquiredTarget (t, null);

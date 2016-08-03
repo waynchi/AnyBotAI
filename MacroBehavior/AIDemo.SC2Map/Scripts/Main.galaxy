@@ -16,6 +16,9 @@ include "scripts/stimpackmicro"
 include "scripts/harassreaction"
 include "scripts/reaperharrassingenemybase"
 
+// This file creates and starts the Anybot AI.
+
+// Create Triggers
 void RegisterTriggers()
 {
     // General Utils triggers
@@ -60,6 +63,7 @@ void RegisterTriggers()
 	HarassReactionRegisterTriggers();
 }
 
+// Initialize and set up the map
 void mapInitiated() {
     // Scenario set-up local variables
     int i = 0;
@@ -78,7 +82,7 @@ void mapInitiated() {
     RegisterTriggers();
 
     // Initialize global arrays
-    //// Possible terran units
+    //// Possible terran units (This was necessary as Galaxy Script does not have any built in list of all the units)
     gMyPossibleUnits[0] = "Banshee";
     gMyPossibleUnits[1] = "Battlecruiser";
     gMyPossibleUnits[2] = "Cyclone";
@@ -168,30 +172,21 @@ void mapInitiated() {
     }
 
     // Set up scenario
-    //// Edit this to create the units that are necessary for your specific behavior test
-    //UnitCreate(16, "Marine", c_unitCreateIgnorePlacement, 1, PointFromName("CameraStart"), 270.0);
-    //UnitCreate(10, "Zergling", c_unitCreateIgnorePlacement, 2, PointFromName("EnemyStart"), 270.0);
-    //// This is the normal scenario for typical gameplay
-    ////// LEAVE THIS COMMENTED OUT FOR TESTING SCENARIOS
-    //////// Create the Hatchery and Drones for the human player
+    // This is the normal scenario for typical gameplay
+    // Create the Hatchery and Drones for the human player
     UnitCreate(1, "Hatchery", c_unitCreateIgnorePlacement, (3 - gTeamNumber), PointFromName("HumanStart"), 270.0);
     UnitCreate(1, "Overlord", 0, (3 - gTeamNumber), PointFromName("HumanStart"), 270.0);
     UnitCreate(12, "Drone", 0, (3 - gTeamNumber), PointFromName("HumanStart"), 270.0);
-    //////// Create the Command Center and SCV's for AnyBot
+    // Create the Command Center and SCV's for AnyBot
     UnitCreate(1, "CommandCenter", c_unitCreateIgnorePlacement, gTeamNumber, PointFromName("AnyBotStart"), 270.0);
     UnitCreate(1, "SupplyDepot", 0, gTeamNumber, UnitTypePlacementFromPoint("SupplyDepot", 2, PointFromName("SupplyDepots0"), 20), 270.0);
     UnitCreate(12, "SCV", 0, gTeamNumber, PointFromName("AnyBotStart"), 270.0);
-	//Used to test starport
-	//UnitCreate(1, "Barracks", c_unitCreateIgnorePlacement, gTeamNumber, PointFromName("Barracks0"), 270.0);
-	//UnitCreate(1, "Factory", c_unitCreateIgnorePlacement, gTeamNumber, PointFromName("Factory0"), 270.0);
-	//UnitCreate(1, "Starport", c_unitCreateIgnorePlacement, gTeamNumber, PointFromName("Starport0"), 270.0);
+
 
     // Set up state machine for build decisions
     MacroSetUpStateMachine();
 
     // Set up our strategy for basic runActions
-    //// LEAVE THIS COMMENTED OUT FOR FINAL VERSIONS
     ExpandSetupBuildOrder();
-	//GeneralSetupBuildOrder();
-	//TestBuild();
+
 }

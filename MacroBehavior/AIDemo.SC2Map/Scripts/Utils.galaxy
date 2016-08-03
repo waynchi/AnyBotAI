@@ -1,4 +1,8 @@
-// UNITS
+
+// This file contains all of the utilities used in our various micro and macro scripts.
+// We created it as we discovered more and more functions that we wanted to use repeatedly.
+// Having this is helpful not only to us, but also to anyone else who would like to use our codebase.
+
 bool UtilsUnitQueueSlotEmpty(unit u, int slot) {
     bool isUsed = false;
     isUsed = (isUsed || libNtve_gf_UnitIsUnderConstruction(u));
