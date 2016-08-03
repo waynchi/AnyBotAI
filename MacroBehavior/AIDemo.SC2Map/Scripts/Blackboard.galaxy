@@ -1,0 +1,105 @@
+struct EnemyUnit {
+  unit enemy;
+  fixed assignedDamage;
+};
+
+struct EnemyStructure {
+    unit enemy;
+    fixed assignedDamage;
+};
+
+struct FriendlyUnit {
+  unit friendly;
+  bool ffAssigned;
+  string groupName;
+  bool building;
+};
+
+struct FriendlyStructure {
+    unit friendly;
+    bool assigned;
+    bool hasAddOn;
+    int baseNumber;
+};
+
+struct FriendlyUnitGroup {
+    string groupName;
+    unitgroup group;
+    int expectedSize;
+};
+
+struct Purchase {
+    string item;
+    int mineralPrice;
+    int vespenePrice;
+    int priority;
+    string structureToPurchaseFrom;
+    int baseNumber;
+};
+
+// Debug variables
+bool gDebugChatOn = false;
+bool gMineralCountOn = false;
+bool gFogOfWarOn = false;
+bool gFastestSpeed = true;
+
+int gFactorySCV = -1;
+
+// Data about AnyBot
+//// Team Number
+int gTeamNumber = 2;
+//// Tracking our units
+int gMyUnitCount = 0;
+FriendlyUnit[1000] gMyUnitList;
+string[24] gMyPossibleUnits;
+int gSupplyCount = 0;
+int gSCVCount = 0;
+int[6] gSCVsAtBases;
+//// Tracking our unit groups
+int gCurrentlyCreatingAttackGroup = 1;
+int gCurrentAttackGroupExpectedSize = 0;
+int gCurrentlyCreatingSCVGroup = 1;
+int gCurrentlyCreatingReaperPair = 1;
+unitgroup gCurrentReaperPair;
+FriendlyUnitGroup[20] gMyUnitGroupList;
+int gMyUnitGroupCount = 0;
+int gAttackGroupScale = 5;
+//// Tracking our structures
+int gMyStructureCount = 0;
+FriendlyStructure[1000] gMyStructureList;
+string[30] gMyPossibleStructures;
+int[6] gBarracksAtBase;
+int[6] gTempBarracksAtBase;
+//// Tracking our upcoming purchases
+int gPurchaseListCount = 0;
+Purchase[1000] gPurchaseList;
+bool gPurchaseLock = true;
+//// Tracking our expansions
+bool gBuildingExpansion = false;
+int gMaxExpansions = 6;
+bool[6] gActiveBases;
+bool[6] gExhaustedBases;
+int gBaseSaturation = 16;
+
+int[250][2] gMacroStateMachine; // array of destination states
+int[250] gMacroStateMachineCondition; // 0 = goto true, 1 = goto false, >=2 = perform action
+int gMacroCurrentState;
+
+// Data about the Human
+//// Tracking their units
+int gEnemyUnitCount = 0;
+EnemyUnit[1000] gEnemyUnitList;
+int gEnemiesInRangeCount = 0;
+EnemyUnit[1000] gEnemiesInRange;
+//// Tracking their structures
+int gEnemyStructureCount = 0;
+EnemyStructure[1000] gEnemyStructureList;
+string[23] gEnemyPossibleStructures;
+
+void UtilsDebugLog(string message, bool forcePrint)
+{
+    if (gDebugChatOn || forcePrint)
+    {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(message));
+    }
+}

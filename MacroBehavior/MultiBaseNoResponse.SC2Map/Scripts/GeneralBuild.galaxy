@@ -1,0 +1,126 @@
+//Notes:
+//1) Need to add an entirely different form of giving orders (needs it to be more similar to triggers and can be based on completion percentage) - medium - hard
+//2) Need to add the ability to move the scv before the mineral count hits the needed amount (This can possibly be done in the same method, but will need slight modifications) -easy to medium
+//3) Need to add the ability to build things/activate abilities and not just purchase items - easy
+// Problem: If Unit is requestted to be built before the structure is built, it will not be built even after the structure is built. (Strangely, this will NOT happen for a reactor/tech lab)
+// Problem: If the Reaper finishes and then the reactor is built, the reaper starts attacking the reactor (WTF? WHY THIs MAKES NO SENSE) The reactor is evil. Even the marines attack it
+// Problem: Buildings are not queued with the SCV properly
+// Reason: SCV's are not counted as having an order if they are currently building an item.
+// Solution: Need to keep track of which SCVs are building things, not just which have orders.
+//Instead of putting SCV's into the build order, we should just continuously build SCV's until we reach 60 SCV's.
+
+
+void GeneralSetupBuildOrder() {
+    gCurrentlyCreatingAttackGroup = 1;
+    gCurrentAttackGroupExpectedSize = 10;
+    // Original Build
+    //UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    //UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    //UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    //UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    //UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//Cannot build Barracks before Refinery otherwise the SCV will glitch out. I think the problem is that when it's building it will still get queued up.
+	//UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    //UtilsAddPurchaseRequest("TechLab", 50, 25, 100, "Barracks", 0);
+    //UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//Orbital Command doesn't quite work.
+    //UtilsAddPurchaseRequest("OrbitalCommand", 150, 0, 100, "CommandCenter", 0);
+	//UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("CommandCenter", 400, 0, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+	//UtilsAddPurchaseRequest("Factory", 150, 100, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("Reactor", 50, 50, 100, "Barracks", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//Found no SCV???
+	//UtilsAddPurchaseRequest("Starport", 150, 100, 100, "SCV", 0);
+	//UtilsAddPurchaseRequest("TechLab", 50, 25, 100, "Factory", 0);
+	//UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	//UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	//UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+
+    // Updated Build
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter", 0);
+	//Cannot build Barracks before Refinery otherwise the SCV will glitch out. I think the problem is that when it's building it will still get queued up.
+	UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV", 0);
+	UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Reactor", 50, 25, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV", 0);
+	UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV", 1);
+	UtilsAddPurchaseRequest("CommandCenter", 400, 0, 100, "SCV", 0);
+	UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Factory", 150, 100, 100, "SCV", 0);
+	UtilsAddPurchaseRequest("Reactor", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+	UtilsAddPurchaseRequest("TechLab", 50, 25, 100, "Factory", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+	UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Reactor", 50, 25, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+	UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("Reaper", 50, 50, 100, "Barracks", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+    UtilsAddPurchaseRequest("SiegeTank", 150, 125, 100, "Factory", 0);
+}

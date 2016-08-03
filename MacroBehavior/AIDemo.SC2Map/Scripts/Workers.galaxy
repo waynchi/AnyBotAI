@@ -1,0 +1,123 @@
+void WorkersRegisterTriggers()
+{
+    trigger t;
+    // TODO(sot): make triggers
+}
+
+bool WorkersBaseWithinRangeOfPoint(point p, int baseNum, fixed distance)
+{
+    // TODO(sot): move into utility function
+    string baseName = "AnyBotExpansion" + IntToString(baseNum);
+    if (baseNum == 0) {
+        baseName = "AnyBotStart";
+    }
+    return (DistanceBetweenPoints(p, PointFromName(baseName)) < distance);
+}
+
+int WorkersBaseNumberNearPoint(point p)
+{
+    int i;
+    string baseName;
+    for (i = 0; i < 6; i+=1)
+    {
+        if (gActiveBases[i] && WorkersBaseWithinRangeOfPoint(p, i, 10.0))
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int WorkersNumWorkersAtBase(int baseNum)
+{
+    unitgroup workerGroup;
+    // TODO(sot): move into utility function
+    string baseName = "AnyBotExpansion" + IntToString(baseNum);
+    if (baseNum == 0) {
+        baseName = "AnyBotStart";
+    }
+
+    // TODO(sot): move into function
+    workerGroup = UnitGroup(UnitTypeFromString("SCV"),
+                                        2,
+                                        RegionCircle(PointFromName(baseName), 10.0),
+                                        UnitFilter((1 << c_targetFilterWorker),
+                                                    0,
+                                                    (1 << c_targetFilterMissile),
+                                                    (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))),
+                                        0);
+    return UnitGroupCount(workerGroup, c_unitCountAlive);
+}
+
+int WorkersBaseWithMostWorkers()
+{
+    int i; // initialized later
+    int numWorkers = 0;
+    int indexOfMax = 0;
+    int maxNumWorkers = 0;
+    for (i = 0; i <= 6; i+=1)
+    {
+        if (gActiveBases[i] == false) {
+            continue;
+        }
+        numWorkers = WorkersNumWorkersAtBase(i);
+
+        if (numWorkers > maxNumWorkers)
+        {
+            indexOfMax = i;
+            maxNumWorkers = numWorkers;
+        }
+    }
+    return indexOfMax;
+}
+
+void WorkersMigrateWorkers(int baseFrom, int baseTo, int numWorkers)
+{
+    unitgroup workerGroup;
+    string baseFromName;
+    string baseToName;
+    // TODO(sot): move into utility function
+    baseFromName = "AnyBotExpansion" + IntToString(baseFrom);
+    if (baseFrom == 0) {
+        baseFromName = "AnyBotStart";
+    }
+    baseToName = "AnyBotExpansion" + IntToString(baseTo);
+    if (baseTo == 0) {
+        baseToName = "AnyBotStart";
+    }
+
+    // TODO(sot): move into function
+    workerGroup = UnitGroup(UnitTypeFromString("SCV"),
+                                        2,
+                                        RegionCircle(PointFromName(baseFromName), 10.0),
+                                        UnitFilter((1 << c_targetFilterWorker),
+                                                    0,
+                                                    (1 << c_targetFilterMissile),
+                                                    (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))),
+                                        numWorkers);
+
+    // Do not migrate workers that are mining gas (yet)
+    UnitGroupLoopBegin(workerGroup);
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() )
+    {
+        if (UnitGetType(OrderGetTargetUnit(UnitOrder(UnitGroupLoopCurrent(), 0))) == "Refinery")
+        {
+            UnitGroupRemove(workerGroup, UnitGroupLoopCurrent());
+        }
+    }
+    UnitGroupLoopEnd();
+
+    UnitGroupIssueOrder(workerGroup,
+                        OrderTargetingUnit(AbilityCommand("SCVHarvest", 0),
+                                            UnitGroupClosestToPoint(UnitGroupFromId(1), PointFromName(baseToName))),
+                                            c_orderQueueReplace);
+}
+
+void WorkersOnBaseComplete(int baseNum)
+{
+    int baseFrom = WorkersBaseWithMostWorkers();
+    int baseTo = baseNum;
+    int numWorkersToMigrate = WorkersNumWorkersAtBase(baseFrom) / 2;
+
+    WorkersMigrateWorkers(baseFrom, baseTo, numWorkersToMigrate);
+}

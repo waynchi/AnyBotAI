@@ -1,0 +1,648 @@
+// UNITS
+bool UtilsUnitQueueSlotEmpty(unit u, int slot) {
+    bool isUsed = false;
+    isUsed = (isUsed || libNtve_gf_UnitIsUnderConstruction(u));
+    isUsed = (isUsed || UnitQueueItemTypeCheck(u, slot, c_unitProgressTypeTrain));
+    isUsed = (isUsed || UnitQueueItemTypeCheck(u, slot, c_unitProgressTypeResearch));
+    isUsed = (isUsed || UnitQueueItemTypeCheck(u, slot, c_unitProgressTypeConstruct));
+    isUsed = (isUsed || UnitQueueItemTypeCheck(u, slot, c_unitProgressTypeLearn));
+    isUsed = (isUsed || UnitQueueItemTypeCheck(u, slot, c_unitProgressTypeRevive));
+    isUsed = (isUsed || UnitQueueItemTypeCheck(u, slot, c_unitProgressTypeSpecialize));
+    return (!isUsed);
+}
+
+int UtilsClosestBaseForStructure(unit u) {
+    fixed distanceToHome = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("AnyBotStart"));
+    fixed distanceToExpansionOne = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("AnyBotExpansion1"));
+    fixed distanceToExpansionTwo = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("AnyBotExpansion2"));
+    fixed distanceToExpansionThree = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("AnyBotExpansion3"));
+    fixed distanceToExpansionFour = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("AnyBotExpansion4"));
+    fixed distanceToExpansionFive = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("AnyBotExpansion5"));
+    fixed minimum = distanceToHome;
+    int closest = 0;
+
+    if (distanceToExpansionOne < minimum) {
+        minimum = distanceToExpansionOne;
+        closest = 1;
+    }
+    if (distanceToExpansionTwo < minimum) {
+        minimum = distanceToExpansionTwo;
+        closest = 2;
+    }
+    if (distanceToExpansionThree < minimum) {
+        minimum = distanceToExpansionThree;
+        closest = 3;
+    }
+    if (distanceToExpansionFour < minimum) {
+        minimum = distanceToExpansionFour;
+        closest = 4;
+    }
+    if (distanceToExpansionFive < minimum) {
+        minimum = distanceToExpansionFive;
+        closest = 5;
+    }
+
+    return closest;
+}
+
+unit UtilsGetAvailableSCVForBase(int baseNum) {
+    int i = 0;
+    bool scvAtBase = false;
+    unit scvToUse;
+
+    for (; i < gMyUnitCount; i += 1) {
+        if (UnitGetType(gMyUnitList[i].friendly) == "SCV") {
+            // We should have different logic if we've already found an scv at this base
+            if (scvAtBase == false || (scvAtBase == true && (UtilsClosestBaseForStructure(gMyUnitList[i].friendly) == baseNum))) {
+                // This scv may be available, lets make sure it is only mining minerals right now
+                if (! gMyUnitList[i].building) {
+                    // This scv is available
+                    if (UtilsClosestBaseForStructure(gMyUnitList[i].friendly) == baseNum) {
+                        scvAtBase = true;
+                    }
+                    gMyUnitList[i].building = true;
+                    scvToUse = gMyUnitList[i].friendly;
+                    break;
+                }
+            }
+        }
+    }
+
+    return scvToUse;
+}
+
+int UtilsNumStructuresForBase(string structureType, int baseNumber) {
+    int numStructures = 0;
+    int i = 0;
+
+    for (; i < gMyStructureCount; i += 1) {
+        if (UnitGetType(gMyStructureList[i].friendly) == structureType && gMyStructureList[i].baseNumber == baseNumber) {
+            numStructures += 1;
+        }
+    }
+
+    return numStructures;
+}
+
+int UtilsClosestEnemyBaseForUnit(unit u) {
+    int closestBase = 0;
+    int i = 1;
+    fixed closestDistance = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("HumanStart"));
+    fixed tempDistance = 0;
+    int numBases = 6;
+
+    for (; i < numBases; i += 1) {
+        tempDistance = DistanceBetweenPoints(UnitGetPosition(u), PointFromName("HumanBase" + IntToString(i)));
+        if (tempDistance < closestDistance) {
+            closestDistance = tempDistance;
+            closestBase = i;
+        }
+    }
+
+    return closestBase;
+}
+
+bool UtilsIsUnitMyUnit(unit u) {
+    string unitType = UnitGetType(u);
+    int i = 0;
+    for (; i < 24; i += 1) {
+        if (unitType == gMyPossibleUnits[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool UtilsIsUnitMyStructure(unit u) {
+    string unitType = UnitGetType(u);
+    int i = 0;
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Checking if my structure: " + unitType));
+    for (; i < 30; i += 1) {
+        if (unitType == gMyPossibleStructures[i]) {
+            if (gDebugChatOn) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Is my structure: " + unitType));
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+bool UtilsIsUnitEnemyStructure(unit u) {
+    string unitType = UnitGetType(u);
+    int i = 0;
+    for (; i < 23; i += 1) {
+        if (unitType == gEnemyPossibleStructures[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool UtilsDeleteMyUnit(unit u) {
+    int i = 0;
+    bool foundUnit = false;
+    for (; i < gMyUnitCount; i += 1) {
+        if (u == gMyUnitList[i].friendly) {
+            foundUnit = true;
+        }
+        if (foundUnit == true) {
+            gMyUnitList[i].friendly = gMyUnitList[i+1].friendly;
+            gMyUnitList[i].ffAssigned = gMyUnitList[i+1].ffAssigned;
+            gMyUnitList[i].building = gMyUnitList[i+1].building;
+            gMyUnitList[i].groupName = gMyUnitList[i+1].groupName;
+        }
+    }
+    if (foundUnit) {
+        gMyUnitCount -= 1;
+    }
+    return foundUnit;
+}
+
+bool UtilsDeleteMyStructure(unit u) {
+    int i = 0;
+    bool foundUnit = false;
+    for (; i < gMyStructureCount; i += 1) {
+        if (u == gMyStructureList[i].friendly) {
+            foundUnit = true;
+        }
+        if (foundUnit == true) {
+            gMyStructureList[i].friendly = gMyStructureList[i+1].friendly;
+            gMyStructureList[i].assigned = gMyStructureList[i+1].assigned;
+            gMyStructureList[i].hasAddOn = gMyStructureList[i+1].hasAddOn;
+            gMyStructureList[i].baseNumber = gMyStructureList[i+1].baseNumber;
+        }
+    }
+    if (foundUnit) {
+        gMyStructureCount -= 1;
+    }
+    return foundUnit;
+}
+
+bool UtilsDeleteEnemyUnit(unit u) {
+    int i = 0;
+    bool foundUnit = false;
+    for (; i < gEnemyUnitCount; i += 1) {
+        if (u == gEnemyUnitList[i].enemy) {
+            foundUnit = true;
+        }
+        if (foundUnit == true) {
+            gEnemyUnitList[i].enemy = gEnemyUnitList[i+1].enemy;
+            gEnemyUnitList[i].assignedDamage = gEnemyUnitList[i+1].assignedDamage;
+        }
+    }
+    if (foundUnit) {
+        gEnemyUnitCount -= 1;
+    }
+    return foundUnit;
+}
+
+bool UtilsDeleteEnemyStructure(unit u) {
+    int i = 0;
+    bool foundUnit = false;
+    for (; i < gEnemyStructureCount; i += 1) {
+        if (u == gEnemyStructureList[i].enemy) {
+            foundUnit = true;
+        }
+        if (foundUnit == true) {
+            gEnemyStructureList[i].enemy = gEnemyStructureList[i+1].enemy;
+            gEnemyStructureList[i].assignedDamage = gEnemyStructureList[i+1].assignedDamage;
+        }
+    }
+    if (foundUnit) {
+        gEnemyStructureCount -= 1;
+    }
+    return foundUnit;
+}
+
+bool UtilsOnUnitCreated(bool checkConds, bool runActions)
+{
+    // This method should register each unit created in our unit list or the enemy unit list for future reference
+    unit createdUnit = EventUnitCreatedUnit();
+    string unitType = UnitGetType(createdUnit);
+    text unitName = UnitGetName(createdUnit);
+    bool isMine = false;
+    bool isStructure = false;
+    int i = 0;
+    bool foundGroup = false;
+    string groupNameToUse;
+    trigger t;
+
+    // Determine if the unit that was created is one of my units
+    if (UtilsIsUnitMyUnit(createdUnit)) {
+        isMine = true;
+    }
+
+    // If we have not already found our unit, determine if the unit that was created is one of my structures
+    if (isMine == false) {
+        if (UtilsIsUnitMyStructure(createdUnit)) {
+            isMine = true;
+            isStructure = true;
+        }
+
+        // If we have not already found our unit, determine if the unit that was created is one of the enemy's structures
+        if (isMine == false) {
+            if (UtilsIsUnitEnemyStructure(createdUnit)) {
+                isStructure = true;
+            }
+
+            // If we have failed to determine anything at this point, then we can assume that the unit is one of the enemy's units
+        }
+    }
+
+    // Handle the unit being created in our memory
+    if (isMine == true && isStructure == false)
+    {
+        // The unit is one of our units
+        gMyUnitList[gMyUnitCount].friendly = createdUnit;
+        gMyUnitList[gMyUnitCount].ffAssigned = false;
+        gMyUnitList[gMyUnitCount].building = false;
+        if (UnitGetType(createdUnit) == "SCV") {
+            gMyUnitList[gMyUnitCount].groupName = "SCVGroup" + IntToString(gCurrentlyCreatingSCVGroup);
+        } else {
+            gMyUnitList[gMyUnitCount].groupName = "AttackWave" + IntToString(gCurrentlyCreatingAttackGroup);
+        }
+        gMyUnitCount += 1;
+
+        // Next add this unit to the proper unit group
+        // We first need to see if we are already tracking the requested unit group
+        if (UnitGetType(createdUnit) == "SCV") {
+            groupNameToUse = "SCVGroup" + IntToString(gCurrentlyCreatingSCVGroup);
+        } else {
+            groupNameToUse = "AttackWave" + IntToString(gCurrentlyCreatingAttackGroup);
+            UnitIssueOrder(createdUnit, OrderTargetingPoint(AbilityCommand("move", 0), PointFromName("ArmyRally" + IntToString(UtilsClosestBaseForStructure(createdUnit)))), c_orderQueueReplace);
+        }
+        i = 0;
+        for (; i < gMyUnitGroupCount; i += 1) {
+            if (gMyUnitGroupList[i].groupName == groupNameToUse) {
+                // This is our group that we should use
+                foundGroup = true;
+                UnitGroupAdd(gMyUnitGroupList[i].group, createdUnit);
+                if (gDebugChatOn) {
+                    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, IntToText(UnitGroupCount(gMyUnitGroupList[i].group, c_unitCountAlive)));
+                }
+
+                // We should check if this is our attack group and if it is ready to depart
+                if (UnitGetType(createdUnit) != "SCV") {
+                    if (gMyUnitGroupList[i].expectedSize <= UnitGroupCount(gMyUnitGroupList[i].group, c_unitCountAlive)) {
+                        // This attack group is ready to depart
+                        LongTravelEmbark(gMyUnitGroupList[i].group, gMyUnitGroupList[i].groupName, "HumanStart");
+
+                        // Now move on to the next attack group
+                        gCurrentlyCreatingAttackGroup += 1;
+                        gCurrentAttackGroupExpectedSize = 10 + gAttackGroupScale;
+                        gAttackGroupScale = gAttackGroupScale * 2;
+                        if (gAttackGroupScale > 35) {
+                            gAttackGroupScale = 35;
+                        }
+                    }
+                }
+            }
+        }
+        if (foundGroup == false) {
+            // We don't track this group yet, so we should create it
+            gMyUnitGroupList[gMyUnitGroupCount].groupName = groupNameToUse;
+            gMyUnitGroupList[gMyUnitGroupCount].group = UnitGroup(null, 2, RegionEmpty(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            gMyUnitGroupList[gMyUnitGroupCount].expectedSize = gCurrentAttackGroupExpectedSize;
+            UnitGroupAdd(gMyUnitGroupList[gMyUnitGroupCount].group, createdUnit);
+            gMyUnitGroupCount += 1;
+        }
+
+        // Assign any triggers here
+        if (UnitGetType(createdUnit) != "SCV") {
+            t = TriggerCreate("SpreadOnUnitRange");
+            TriggerAddEventUnitRange(t, null, createdUnit, 10.0, true);
+        }
+        // Assign any special behaviors here
+        if (UnitGetType(createdUnit) == "SCV") {
+            UnitIssueOrder(createdUnit, OrderTargetingUnit(AbilityCommand("SCVHarvest", 0), UnitGroupClosestToPoint(UnitGroupFromId(1), UnitGetPosition(createdUnit))), c_orderQueueReplace);
+        } else {
+            t = TriggerCreate("FocusFireOnUnitRange");
+            TriggerAddEventUnitRange(t, null, createdUnit, UnitWeaponRange(createdUnit, 1), true);
+            if (UnitGetType(createdUnit) == "SiegeTank")
+            {
+                t = TriggerCreate("SiegeMicroOnUnitRangeEnter");
+                TriggerAddEventUnitRange(t, null, createdUnit, 13, true);
+                t = TriggerCreate("SiegeMicroOnUnitRangeExit");
+                TriggerAddEventUnitRange(t, null, createdUnit, 15, false);
+            }
+        }
+    } else if (isMine == true && isStructure == true) {
+        // Do nothing, this is handled in UtilsOnStructureCreated
+        if (UnitGetType(createdUnit) == "CommandCenter" && gExpansionNumber == 0) {
+            gMyStructureList[gMyStructureCount].friendly = createdUnit;
+            gMyStructureList[gMyStructureCount].assigned = false;
+            gMyStructureList[gMyStructureCount].hasAddOn = false;
+            gMyStructureList[gMyStructureCount].baseNumber = UtilsClosestBaseForStructure(createdUnit);
+            gMyStructureCount += 1;
+            if (gDebugChatOn) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Initial base constructed."));
+            }
+            gExpansionNumber += 1;
+
+        }
+    } else if (isMine == false && isStructure == false) {
+        // The unit is one of the enemy's units
+        gEnemyUnitList[gEnemyUnitCount].enemy = createdUnit;
+        gEnemyUnitList[gEnemyUnitCount].assignedDamage = 0;
+        gEnemyUnitCount += 1;
+        // Assign any triggers here
+    } else if (isMine == false && isStructure == true) {
+        // Do nothing, this is handled in UtilsOnStructureCreated
+    }
+
+    return true;
+}
+
+bool UtilsOnStructureCreated(bool checkConds, bool runActions)
+{
+    // This method should register each unit created in our unit list or the enemy unit list for future reference
+    unit createdUnit = EventUnitProgressUnit();
+    string unitType = UnitGetType(createdUnit);
+    text unitName = UnitGetName(createdUnit);
+    bool isMine = false;
+    bool isStructure = false;
+    int i = 0;
+    int numAssigned = 0;
+
+    // Determine if the unit that was created is one of my units
+    if (UtilsIsUnitMyUnit(createdUnit)) {
+        isMine = true;
+    }
+
+    // If we have not already found our unit, determine if the unit that was created is one of my structures
+    if (isMine == false) {
+        if (UtilsIsUnitMyStructure(createdUnit)) {
+            isMine = true;
+            isStructure = true;
+        }
+
+        // If we have not already found our unit, determine if the unit that was created is one of the enemy's structures
+        if (isMine == false) {
+            if (UtilsIsUnitEnemyStructure(createdUnit)) {
+                isStructure = true;
+            }
+
+            // If we have failed to determine anything at this point, then we can assume that the unit is one of the enemy's units
+        }
+    }
+
+    // Handle the unit being created in our memory
+    if (isMine == true && isStructure == false)
+    {
+        // Do nothing, this is handled in UtilsOnUnitCreated
+    } else if (isMine == true && isStructure == true) {
+        // The unit is one of our structures
+        gMyStructureList[gMyStructureCount].friendly = createdUnit;
+        gMyStructureList[gMyStructureCount].assigned = false;
+        gMyStructureList[gMyStructureCount].hasAddOn = false;
+        gMyStructureList[gMyStructureCount].baseNumber = UtilsClosestBaseForStructure(createdUnit);
+        gMyStructureCount += 1;
+        // Assign any triggers here
+        // Assign any special behaviors here
+        if (UnitGetType(createdUnit) == "Refinery") {
+            i = 0;
+            for (; i < gMyUnitCount; i += 1) {
+                if (UnitGetType(gMyUnitList[i].friendly) == "SCV") {
+                    if (gMyUnitList[i].building == false) {
+                        // Uses c_orderQueueReplace because this should be the unit's sole job. We don't want our refinery scv's to be building things.
+                        gMyUnitList[i].building = true;
+                        UnitIssueOrder(gMyUnitList[i].friendly, OrderTargetingUnit(AbilityCommand("SCVHarvest", 0), createdUnit), c_orderQueueReplace);
+                        numAssigned += 1;
+                        if (numAssigned == 3) {
+                            break;
+                        }
+                    }
+                }
+            }
+        } else if (UnitGetType(createdUnit) == "CommandCenter" && gExpansionNumber == 0) {
+            if (gDebugChatOn) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Initial base constructed."));
+            }
+            gExpansionNumber += 1;
+
+        } else if (UnitGetType(createdUnit) == "CommandCenter" && gExpansionNumber != 0) {
+            gMyStructureList[gMyStructureCount - 1].baseNumber = gExpansionNumber;
+            if (gDebugChatOn) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Issuing expansion orders."));
+            }
+            UnitIssueOrder(createdUnit, Order(AbilityCommand("CommandCenterLiftOff", 0)), c_orderQueueAddToEnd);
+            UnitIssueOrder(createdUnit, OrderTargetingPoint(AbilityCommand("CommandCenterLand", 0), UnitTypePlacementFromPoint("CommandCenter", 2, PointFromName("AnyBotExpansion" + IntToString(gExpansionNumber)), 20)), c_orderQueueAddToEnd);
+            gExpansionNumber += 1;
+        }
+    } else if (isMine == false && isStructure == false) {
+        // Do nothing, this is handled in UtilsOnUnitCreated
+    } else if (isMine == false && isStructure == true) {
+        // The unit is one of the enemy's structures
+        gEnemyStructureList[gEnemyStructureCount].enemy = createdUnit;
+        gEnemyStructureList[gEnemyStructureCount].assignedDamage = 0;
+        gEnemyStructureCount += 1;
+        // Assign any triggers here
+    }
+
+    return true;
+}
+
+bool UtilsOnUnitDied(bool ceckConds, bool runActions) {
+    // This method should remove the dead unit from our unit list and shift units around in the array for tracking purposes
+    unit dyingUnit = EventUnit();
+    string unitType = UnitGetType(dyingUnit);
+    bool isMine = false;
+    bool isStructure = false;
+    int i = 0;
+    bool foundUnit = false;
+
+    // Determine if the unit that was created is one of my units
+    if (UtilsIsUnitMyUnit(dyingUnit)) {
+        isMine = true;
+    }
+
+    // If we have not already found our unit, determine if the unit that was created is one of my structures
+    if (isMine == false) {
+        if (UtilsIsUnitMyStructure(dyingUnit)) {
+            isMine = true;
+            isStructure = true;
+        }
+
+        // If we have not already found our unit, determine if the unit that was created is one of the enemy's structures
+        if (isMine == false) {
+            if (UtilsIsUnitEnemyStructure(dyingUnit)) {
+                isStructure = true;
+            }
+
+            // If we have failed to determine anything at this point, then we can assume that the unit is one of the enemy's units
+        }
+    }
+
+    // Handle the unit dying in our memory
+    if (isMine == true && isStructure == false) {
+        // The unit is one of our units
+        UtilsDeleteMyUnit(dyingUnit);
+    } else if (isMine == true && isStructure == true) {
+        // The unit is one of our structures
+        UtilsDeleteMyStructure(dyingUnit);
+    } else if (isMine == false && isStructure == false) {
+        // The unit is one of the enemy's units
+        UtilsDeleteEnemyUnit(dyingUnit);
+    } else if (isMine == false && isStructure == true) {
+        // The unit is one of the enemy's structures
+        UtilsDeleteEnemyStructure(dyingUnit);
+    }
+
+    return true;
+}
+
+// PURCHASES
+void UtilsAddPurchaseRequest(string item, int mineralPrice, int vespenePrice, int priority, string structure, int baseNumber) {
+    // Append the request to the end of our purchase list
+    gPurchaseList[gPurchaseListCount].item = item;
+    gPurchaseList[gPurchaseListCount].mineralPrice = mineralPrice;
+    gPurchaseList[gPurchaseListCount].vespenePrice = vespenePrice;
+    gPurchaseList[gPurchaseListCount].priority = priority;
+    gPurchaseList[gPurchaseListCount].structureToPurchaseFrom = structure;
+    gPurchaseList[gPurchaseListCount].baseNumber = baseNumber;
+    // Increment our list count
+    gPurchaseListCount += 1;
+}
+
+void UtilsMadePurchase(int index) {
+    int i = index;
+    for (; i < gPurchaseListCount - 1; i += 1) {
+        gPurchaseList[i].item = gPurchaseList[i+1].item;
+        gPurchaseList[i].mineralPrice = gPurchaseList[i+1].mineralPrice;
+        gPurchaseList[i].vespenePrice = gPurchaseList[i+1].vespenePrice;
+        gPurchaseList[i].priority = gPurchaseList[i+1].priority;
+        gPurchaseList[i].structureToPurchaseFrom = gPurchaseList[i+1].structureToPurchaseFrom;
+        gPurchaseList[i].baseNumber = gPurchaseList[i+1].baseNumber;
+    }
+
+    // Decrement our list count
+    gPurchaseListCount -= 1;
+}
+
+fixed UtilsGetPercentageSuccessAttackingBase(string groupName, int baseNum) {
+    // Should range be accounted for?
+    fixed myHealth = 0;
+    fixed myDPS = 0;
+    int myNumUnits = 0;
+    fixed enemyHealth = 0;
+    fixed enemyDPS = 0;
+    int enemyNumUnits = 0;
+    fixed percentageToReturn = 0;
+    int i = 0;
+
+    i = 0;
+    for (; i < gMyUnitCount; i += 1) {
+        if (gMyUnitList[i].groupName == groupName) {
+            myHealth += UnitGetPropertyFixed(gMyUnitList[i].friendly, c_unitPropLife, true);
+            myDPS += UnitWeaponDamage(gMyUnitList[i].friendly, 1, c_unitAttributeNone, false) * UnitWeaponSpeedMultiplier(gMyUnitList[i].friendly, 1);
+            myNumUnits += 1;
+        }
+    }
+
+    i = 0;
+    for (; i < gEnemyUnitCount; i += 1) {
+        if (UtilsClosestEnemyBaseForUnit(gEnemyUnitList[i].enemy) == baseNum) {
+            enemyHealth += UnitGetPropertyFixed(gEnemyUnitList[i].enemy, c_unitPropLife, true);
+            enemyDPS += UnitWeaponDamage(gEnemyUnitList[i].enemy, 1, c_unitAttributeNone, false) * UnitWeaponSpeedMultiplier(gEnemyUnitList[i].enemy, 1);
+            enemyNumUnits += 1;
+        }
+    }
+
+    // How should percentage be affected?
+    //// High enemy health = lower percentage
+    //// High enemy DPS = lower percentage
+    //// High enemy number = higher percentage (faster rate of decay on DPS, rather than big jumps every now and then)
+    //// High group health = higher percentage
+    //// High group DPS = higher percentage
+    //// High group number = lower percentage (same reasoning as above)
+    // Current Logic
+    //// Calculate the extra time we have after defeating the enemy group until the enemy group would have defeated us
+    //// Add 20 to convert -20 seconds (being defeated 20 seconds before being able to defeat the enemy) into a positive (0)
+    //// Divide by 40 to normalize the time from -20 to 20
+    //// Clamp the percentage between 0 and 1 (as a gap of more than 20 seconds on either side is indicitave of a 100% chance of either victory or defeat)
+    if (myDPS == 0) {
+        return 0;
+    } else if (enemyDPS == 0) {
+        return -1;
+    }
+    percentageToReturn = (enemyHealth / myDPS) - (myHealth / enemyDPS);
+    percentageToReturn += 20;
+    percentageToReturn /= 40;
+    if (percentageToReturn < 0) {
+        percentageToReturn = 0;
+    } else if (percentageToReturn > 1) {
+        percentageToReturn = 1;
+    }
+
+    return percentageToReturn;
+}
+
+// Threshold is from 0-1
+int UtilsGetBaseToAttack(string groupName, fixed threshold) {
+    int baseNumToAttack = -1;
+    fixed percentageOfSuccess = -1;
+    int i = 0;
+    int numBases = 5;
+    fixed tempPercentage = 0;
+
+    for (; i < numBases; i += 1) {
+        tempPercentage = UtilsGetPercentageSuccessAttackingBase(groupName, i);
+        if (tempPercentage > percentageOfSuccess && tempPercentage >= threshold) {
+            baseNumToAttack = i;
+            percentageOfSuccess = tempPercentage;
+        }
+    }
+
+    if (gDebugChatOn) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Group: " + groupName + " should attack enemy base: " + IntToString(baseNumToAttack)));
+    }
+    return baseNumToAttack;
+}
+
+void UtilsDebugLog(string message)
+{
+    if (gDebugChatOn)
+    {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(message));
+    }
+}
+
+bool UtilsAttackBack(bool checkConds, bool runActions) {
+    unit attackingUnit = EventUnitTarget();
+    unit triggeringUnit = EventUnit();
+    int i = 0;
+    string groupName = "none";
+    int baseToAttack = 0;
+
+    for (; i < gMyUnitCount; i += 1) {
+        if (gMyUnitList[i].friendly == attackingUnit) {
+            groupName = gMyUnitList[i].groupName;
+            break;
+        }
+    }
+
+    if (groupName == "none" || UnitGetType(attackingUnit) == "SCV") {
+        return true;
+    }
+
+    i = 0;
+    for (; i < gMyUnitGroupCount; i += 1) {
+        if (gMyUnitGroupList[i].groupName == groupName) {
+            if (UnitGroupCount(gMyUnitGroupList[i].group, c_unitCountAlive) > 0.4 * gMyUnitGroupList[i].expectedSize) {
+                // Which base to attack?
+                baseToAttack = UtilsGetBaseToAttack(gMyUnitGroupList[i].groupName, 0);
+                if (baseToAttack == 0) {
+                    // Send this group to attack
+                    LongTravelEmbark(gMyUnitGroupList[i].group, gMyUnitGroupList[i].groupName, "HumanStart");
+                } else if (baseToAttack == -1) {
+                    LongTravelEmbark(gMyUnitGroupList[i].group, gMyUnitGroupList[i].groupName, "AnyBotStart");
+                } else {
+                    LongTravelEmbark(gMyUnitGroupList[i].group, gMyUnitGroupList[i].groupName, "HumanBase" + IntToString(baseToAttack));
+                }
+            }
+            break;
+        }
+    }
+    return true;
+}

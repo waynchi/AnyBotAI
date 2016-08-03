@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Preload>
+<Actor id="SYSTEM_ActorConfig"/>
+<Terrain id="Char2"/>
+<Unit id="CommandCenter"/>
+<Unit id="Barracks"/>
+<Unit id="BarracksTechLab"/>
+<Unit id="Marine"/>
+<Unit id="Hive"/>
+<Unit id="Zergling"/>
+</Preload>

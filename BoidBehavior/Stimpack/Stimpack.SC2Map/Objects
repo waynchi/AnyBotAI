@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlacedObjects Version="27">
+    <ObjectUnit Id="45" Position="75.5,64.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Barracks" Player="1"/>
+    <ObjectUnit Id="44" Position="78,64,0" Rotation="5.4975" Scale="1,1,1" UnitType="BarracksTechLab" Player="1"/>
+    <ObjectUnit Id="43" Position="73.5,73.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="CommandCenter" Player="1"/>
+    <ObjectUnit Id="42" Position="44.5,63.5,0" Scale="1,1,1" UnitType="Hive" Player="2"/>
+    <ObjectUnit Id="10" Position="66.7976,65.0715,0" Rotation="3.43" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="11" Position="67.601,65.2006,0" Rotation="6.059" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="12" Position="68.3723,65.1228,0" Rotation="0.8486" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="13" Position="66.7136,64.1347,0" Rotation="0.718" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="14" Position="67.67,64.2336,0" Rotation="2.9572" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="15" Position="68.4343,64.2336,0" Rotation="1.0781" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="16" Position="66.8132,63.152,0" Rotation="4.386" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="17" Position="67.7727,63.2487,0" Rotation="1.4223" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="18" Position="68.5808,63.1767,0" Rotation="3.9453" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="1" Position="54.6264,67.0903,0" Rotation="1.828" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="2" Position="55.392,66.7634,0" Rotation="6.2343" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="3" Position="56.6218,66.52,0" Rotation="2.4338" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="4" Position="57.5654,66.4125,0" Rotation="4.0026" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="7" Position="56.6718,65.617,0" Rotation="2.8312" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="8" Position="55.7233,65.4594,0" Rotation="4.3281" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="9" Position="54.6704,65.434,0" Rotation="2.9414" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="19" Position="57.408,64.8918,0" Rotation="1.1987" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="22" Position="54.1154,64.7133,0" Rotation="1.2998" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="23" Position="54.4997,64.0351,0" Rotation="2.4365" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="24" Position="55.4494,63.9353,0" Rotation="1.788" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="25" Position="57.0742,64.0097,0" Rotation="1.0585" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectPoint Id="5" Position="52.5366,65.737,0" Scale="1,1,1" Type="Normal" Name="Point 001" Color="0,0,0,0"/>
+    <Group Type="ObjectUnit" Name="Unit Group 001" Id="1"/>
+</PlacedObjects>

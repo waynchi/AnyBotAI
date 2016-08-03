@@ -1,0 +1,130 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   AnyBot Spread Behvior Test
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_Init;
+trigger gt_AnyBotWin;
+trigger gt_AnyBotLose;
+trigger gt_BanelingRush;
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script: Spread
+//--------------------------------------------------------------------------------------------------
+include "scripts/spread"
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script Initialization
+//--------------------------------------------------------------------------------------------------
+void InitCustomScript () {
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Init
+//--------------------------------------------------------------------------------------------------
+bool gt_Init_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    mapInitiated();
+    VisEnable(c_visTypeFog, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Init_Init () {
+    gt_Init = TriggerCreate("gt_Init_Func");
+    TriggerAddEventMapInit(gt_Init);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AnyBotWin
+//--------------------------------------------------------------------------------------------------
+bool gt_AnyBotWin_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    GameOver(0, c_gameOverVictory, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AnyBotWin_Init () {
+    gt_AnyBotWin = TriggerCreate("gt_AnyBotWin_Func");
+    TriggerAddEventUnitDied(gt_AnyBotWin, UnitRefFromUnit(UnitFromId(61)));
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AnyBotLose
+//--------------------------------------------------------------------------------------------------
+bool gt_AnyBotLose_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    GameOver(0, c_gameOverDefeat, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AnyBotLose_Init () {
+    gt_AnyBotLose = TriggerCreate("gt_AnyBotLose_Func");
+    TriggerAddEventUnitDied(gt_AnyBotLose, UnitRefFromUnit(UnitFromId(26)));
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: BanelingRush
+//--------------------------------------------------------------------------------------------------
+bool gt_BanelingRush_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitIssueOrder(EventUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromId(39)), c_orderQueueReplace);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_BanelingRush_Init () {
+    gt_BanelingRush = TriggerCreate("gt_BanelingRush_Func");
+    TriggerAddEventUnitRegion(gt_BanelingRush, null, RegionFromName("BanelingStart"), true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_Init_Init();
+    gt_AnyBotWin_Init();
+    gt_AnyBotLose_Init();
+    gt_BanelingRush_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitCustomScript();
+    InitTriggers();
+}

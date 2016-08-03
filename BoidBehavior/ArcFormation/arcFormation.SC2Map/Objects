@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlacedObjects Version="27">
+    <ObjectPoint Id="39" Position="69.0053,69.7636,0" Scale="1,1,1" Type="Normal" Name="RushPoint" Color="0,0,0,0"/>
+    <ObjectPoint Id="40" Position="63.5,69.5,0" Scale="1,1,1" Type="StartLoc" Name="CameraStart" Color="0,0,0,0"/>
+    <ObjectPoint Id="41" Position="44.5,68.5,0" Scale="1,1,1" Type="StartLoc" Name="EnemyStart" Color="0,0,0,0"/>
+</PlacedObjects>

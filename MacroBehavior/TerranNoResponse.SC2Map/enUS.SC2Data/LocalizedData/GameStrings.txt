@@ -1,0 +1,10 @@
+﻿DocInfo/DescLong=This game mode is intended to be playable by a human player against the AnyBot AI. At this stage, it will only use a single macro strategy and will make limited use of the micro behaviors included. AnyBot will not yet scout the player's strategy or skill level and attempt to respond.
+DocInfo/DescShort=AnyBot Testers
+DocInfo/Name=AnyBot Macro Test
+LoadingScreen/TextBody=This game mode is intended to be playable by a human player against the AnyBot AI. At this stage, it will only use a single macro strategy and will make limited use of the micro behaviors included. AnyBot will not yet scout the player's strategy or skill level and attempt to respond.
+LoadingScreen/Tip=AnyBot won't respond to your strategy, find it's strategy and attempt to counter it.
+LoadingScreen/Title=AnyBot Macro Test
+MapInfo/Player00/Name=Neutral
+MapInfo/Player01/Name=Human
+MapInfo/Player02/Name=AnyBot
+MapInfo/Player03/Name=Hostile

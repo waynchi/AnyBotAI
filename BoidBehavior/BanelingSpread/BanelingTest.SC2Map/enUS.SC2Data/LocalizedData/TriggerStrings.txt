@@ -1,0 +1,5 @@
+﻿CustomScript/Name/725435F8=Spread
+Trigger/Name/08705B35=AnyBotLose
+Trigger/Name/0A0F805A=Init
+Trigger/Name/BCCEE4B6=AnyBotWin
+Trigger/Name/F9B3D1CE=BanelingRush

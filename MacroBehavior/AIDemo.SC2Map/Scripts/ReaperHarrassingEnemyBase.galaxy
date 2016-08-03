@@ -1,0 +1,26 @@
+bool ReaperEnemyInRange(bool checkConds, bool runActions)
+{
+    int r = 0;
+    unit eventUnit = EventUnit();
+    unit enteringUnit = EventUnitRangeUnit();
+    //for (; r < gMyUnitGroupCount; r += 1) {
+      //  if (UnitGroupHasUnit(gMyUnitGroupList[r].group, enteringUnit)) {
+            if (UnitGetOwner(eventUnit) == gTeamNumber || UnitGetOwner(eventUnit) == 0 || UtilsIsUnitMyStructure(eventUnit) || UtilsIsUnitEnemyStructure(eventUnit))
+                {
+                 return true;
+            } else if (!UtilsIsUnitMyUnit(eventUnit)) {
+                //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(UnitGetType(enteringUnit)));
+                //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, IntToText(UnitGroupCount(gCurrentReaperPair, c_unitCountAlive)));
+                //StutterStepGroupStutter(gMyUnitGroupList[r].group, eventUnit);
+                UnitGroupRemove(gCurrentReaperPair, enteringUnit);
+                //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, IntToText(UnitGroupCount(gCurrentReaperPair, c_unitCountAlive)));
+                StutterStepGroupStutter(enteringUnit, eventUnit, gCurrentReaperPair);
+                return true;
+            }
+      //  }
+    //}
+
+return true;
+}
+
+

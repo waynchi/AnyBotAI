@@ -1,0 +1,44 @@
+void MarineRushSetupBuildOrder() {
+    gCurrentlyCreatingAttackGroup = 1;
+    gCurrentAttackGroupExpectedSize = 25;
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    // ORBITAL COMMAND
+    // REAPER
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    // COMMAND CENTER
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks");
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks");
+    // FACTORY
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("Reactor", 50, 50, 100, "Barracks");
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks");
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks");
+    // STARPORT
+    // 13 Units
+    // FUSION CORE
+    // A couple units
+    // ADVANCED BALLISTICS
+
+    // Helper requests
+    UtilsAddPurchaseRequest("SCV", 50, 0, 100, "CommandCenter");
+    UtilsAddPurchaseRequest("Barracks", 150, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("SupplyDepot", 100, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("Reactor", 50, 50, 100, "Barracks");
+    UtilsAddPurchaseRequest("Refinery", 75, 0, 100, "SCV");
+    UtilsAddPurchaseRequest("Marine", 50, 0, 100, "Barracks");
+    UtilsAddPurchaseRequest("TechLab", 50, 25, 100, "Barracks");
+    UtilsAddPurchaseRequest("CombatShield", 100, 100, 100, "Barracks");
+}

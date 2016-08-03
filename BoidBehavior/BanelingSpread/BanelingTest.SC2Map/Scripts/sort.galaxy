@@ -1,0 +1,35 @@
+i = 1;
+sortedCurrentUnits[0] = currentUnitGroup[0];
+for (; i < currentUnitGroupCount; i += 1) {
+  otherX = PointGetX(UnitGetPosition(currentUnitGroup[i]));
+  otherY = PointGetY(UnitGetPosition(currentUnitGroup[i]));
+  xDistance = otherX - centerX;
+  yDistance = otherY - centerY;
+  dotProduct = xDistance*normalizedX + yDistance*normalizedY;
+  idealIndex = 0;
+  k = 0;
+  for (; k < i; k+=1) {
+    // Loop through all currently sorted units to determine what index the unit should be placed at
+    otherX = PointGetX(UnitGetPosition(sortedCurrentUnits[k]));
+    otherY = PointGetY(UnitGetPosition(sortedCurrentUnits[k]));
+    xDistance = otherX - centerX;
+    yDistance = otherY - centerY;
+    otherDotProduct = xDistance*normalizedX + yDistance*normalizedY;
+    if (otherDotProduct < dotProduct) {
+      idealIndex = k + 1;
+    }
+
+    // Place the unit at its ideal index
+    if (idealIndex == i) {
+      sortedCurrentUnits[i] = currentUnitGroup[i];
+    } else {
+      // First shift all units up one index if necessary
+      m = idealIndex;
+      for (; m < i + 1; i += 1) {
+        sortedCurrentUnits[m + 1] = sortedCurrentUnits[m];
+      }
+      // Now add the unit at its ideal index
+      sortedCurrentUnits[idealIndex] = currentUnitGroup[i];
+    }
+  }
+}

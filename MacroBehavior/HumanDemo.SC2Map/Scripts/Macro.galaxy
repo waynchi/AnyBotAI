@@ -1,0 +1,215 @@
+void MacroStructureAddAddOn(unit u) {
+    int i = 0;
+    for (; i < gMyStructureCount; i += 1) {
+        if (gMyStructureList[i].friendly == u) {
+            gMyStructureList[i].hasAddOn = true;
+            break;
+        }
+    }
+}
+
+order MacroPurchaseGetOrder(string item, string structure, int baseNumber, unit scv, bool canMove) {
+    order orderToReturn = Order(AbilityCommand("TrainQueen", 0));
+    string baseName = "AnyBotExpansion" + IntToString(baseNumber);
+    if (baseNumber == 0) {
+        baseName = "AnyBotStart";
+    }
+    if (structure == "CommandCenter") {
+        if (item == "SCV") {
+            orderToReturn = Order(AbilityCommand("CommandCenterTrain", 0));
+        }
+    } else if (structure == "Barracks") {
+        if (item == "Marine") {
+            orderToReturn = Order(AbilityCommand("BarracksTrain", 0));
+        } else if (item == "TechLab") {
+            if (canMove) {
+                orderToReturn = OrderTargetingPoint(AbilityCommand("BarracksAddOns", 0), UnitTypePlacementFromPoint("CommandCenter", 2, UnitGetPosition(scv), 20));
+            } else {
+                orderToReturn = OrderTargetingPoint(AbilityCommand("BarracksAddOns", 0), UnitGetPosition(scv));
+            }
+        } else if (item == "Marauder") {
+            orderToReturn = Order(AbilityCommand("BarracksTrain", 3));
+        } else if (item == "StimPack") {
+            orderToReturn = Order(AbilityCommand("BarracksTechLabResearch", 0));
+        } else if (item == "Reactor") {
+            if (canMove) {
+                 orderToReturn = OrderTargetingPoint(AbilityCommand("BarracksAddOns", 1), UnitTypePlacementFromPoint("CommandCenter", 2, UnitGetPosition(scv), 20));
+            } else {
+                orderToReturn = OrderTargetingPoint(AbilityCommand("BarracksAddOns", 1), UnitGetPosition(scv));
+            }
+        } else if (item == "CombatShield") {
+            orderToReturn = Order(AbilityCommand("BarracksTechLabResearch", 1));
+        } else if (item == "Reaper") {
+            orderToReturn = Order(AbilityCommand("BarracksTrain", 1));
+        }
+    } else if (structure == "Factory") {
+		if(item == "SiegeTank") {
+			orderToReturn = Order(AbilityCommand("FactoryTrain", 1));
+		} else if (item == "TechLab") {
+            if (canMove) {
+                orderToReturn = OrderTargetingPoint(AbilityCommand("FactoryAddOns", 0), UnitTypePlacementFromPoint("CommandCenter", 2, UnitGetPosition(scv), 20));
+            } else {
+                orderToReturn = OrderTargetingPoint(AbilityCommand("FactoryAddOns", 0), UnitGetPosition(scv));
+            }
+		}
+	} else if (structure == "SCV") {
+        if (item == "SupplyDepot") {
+            if (baseNumber != 3) {
+                orderToReturn = OrderTargetingPoint(AbilityCommand("TerranBuild", 1), UnitTypePlacementFromPoint(item, 2, PointFromName("SupplyDepots" + IntToString(baseNumber)), 20));
+            }
+        } else if (item == "Barracks") {
+            orderToReturn = OrderTargetingPoint(AbilityCommand("TerranBuild", 3), UnitTypePlacementFromPoint("CommandCenter", 2, PointFromName("Barracks" + IntToString(baseNumber)), 20));
+        } else if (item == "Factory") {
+            orderToReturn = OrderTargetingPoint(AbilityCommand("TerranBuild", 10), UnitTypePlacementFromPoint("CommandCenter", 2, PointFromName("Factory" + IntToString(baseNumber)), 20));
+		} else if (item == "Starport") {
+            orderToReturn = OrderTargetingPoint(AbilityCommand("TerranBuild", 13), UnitTypePlacementFromPoint("CommandCenter", 2, PointFromName("Starport" + IntToString(baseNumber)), 20));
+		} else if (item == "Refinery") {
+            orderToReturn = OrderTargetingUnit(AbilityCommand("TerranBuild", 2), UnitGroupClosestToPoint(UnitGroupFromId(2), PointFromName(baseName)));
+        } else if (item == "CommandCenter") {
+            orderToReturn = OrderTargetingPoint(AbilityCommand("TerranBuild", 0), UnitTypePlacementFromPoint("CommandCenter", 2, PointFromName("CommandCenter"), 20));
+        }
+    } else {
+        if (gDebugChatOn) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Structure unsupported and failed to find order with structure: " + structure + " item: " + item));
+        }
+    }
+    return orderToReturn;
+}
+
+bool MacroMakePurchase(string item, string structure, int baseNumber) {
+    // First, we'll list a databank for what calls should be made for each structure, usting the syntax Structure: Item -> Order. All orders should be used in the format UnitIssueOrder(structureUnit, Order(AbilityCommand("Ability", index)), c_orderQueueAddToEnd);
+    //// CommandCenter: SCV -> AbilityCommand("CommandCenterTrain", 0)
+    //// Barracks: Marine -> AbilityCommand("BarracksTrain", 0)
+    //// Barracks: TechLab -> AbilityCommand("BarracksTechLabResearch", 0) OR AbilityCommand("BarracksAddOns", 30)
+    //// SCV: Barracks -> Not sure yet
+
+    // Set up our local variables
+    int i = 0;
+    int k = 0;
+    bool foundStructure = false;
+    unit structureToBuild;
+    int ordersOnStructure = 99;
+    int orderQueuePosition = 6;
+    order orderToUse;
+    order tempSCVOrder;
+    bool scvAtBase = false;
+
+    // Next lets grab the order that we should use so long as we aren't using an SCV as our builder, as the SCV requires the unit first
+    if (structure != "SCV") {
+        orderToUse = MacroPurchaseGetOrder(item, structure, baseNumber, gMyUnitList[0].friendly, false);
+    }
+
+    // Now lets find a living structure that we need
+    if (structure == "SCV") {
+        structureToBuild = UtilsGetAvailableSCVForBase(baseNumber);
+        foundStructure = true;
+        ordersOnStructure = UnitOrderCount(structureToBuild);
+        // Mark this scv as building
+        i = 0;
+        for (; i < gMyUnitCount; i += 1) {
+            if (gMyUnitList[i].friendly == structureToBuild) {
+                orderToUse = MacroPurchaseGetOrder(item, structure, baseNumber, gMyUnitList[i].friendly, false);
+                gMyUnitList[i].building = true;
+                break;
+            }
+        }
+    } else {
+        for (; i < gMyStructureCount; i += 1) {
+            if (structure == UnitGetType(gMyStructureList[i].friendly) && baseNumber == gMyStructureList[i].baseNumber) {
+                // We have a structure that can do this purchase
+                if (item == "TechLab" || item == "Reactor" || item == "OrbitalCommand") {
+                  orderToUse = MacroPurchaseGetOrder(item, structure, baseNumber, gMyStructureList[i].friendly, false);
+                  if (! UnitOrderIsValid(gMyStructureList[i].friendly, orderToUse)) {
+                      orderToUse = MacroPurchaseGetOrder(item, structure, baseNumber, gMyStructureList[i].friendly, true);
+                  }
+                }
+
+                if (UnitOrderIsValid(gMyStructureList[i].friendly, orderToUse) && ((item != "TechLab" && item != "Reactor") || gMyStructureList[i].hasAddOn == false)) {
+                    k = 0;
+                    for (; k < orderQueuePosition; k += 1) {
+                        if (orderQueuePosition > k && UtilsUnitQueueSlotEmpty(gMyStructureList[i].friendly, k)) {
+                            structureToBuild = gMyStructureList[i].friendly;
+                            foundStructure = true;
+                            ordersOnStructure = k;
+                            orderQueuePosition = k;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Now we need to issue the order to build based off of what structure/item combination is being ordered
+    if (foundStructure) {
+        if (structure == "SCV") {
+            UnitIssueOrder(structureToBuild, orderToUse, c_orderQueueAddToFront);
+        } else if (AbilityCommandGetAbility(OrderGetAbilityCommand(orderToUse)) != "TrainQueen") {
+            UnitIssueOrder(structureToBuild, orderToUse, c_orderQueueAddToEnd);
+            if (item == "TechLab" || item == "Reactor") {
+                MacroStructureAddAddOn(structureToBuild);
+            }
+        } else {
+            if (gDebugChatOn) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Structure unsupported and failed to make purchase with structure: " + structure + " item: " + item));
+            }
+            return false;
+        }
+
+        if (gDebugChatOn) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(structure + " building " + item));
+        }
+        return true;
+    }
+
+    // If we reach this, it means that we don't have the necessary structure
+    if (gDebugChatOn) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Failed to make purchase and found no structure: " + structure + " with item: " + item));
+    }
+    return false;
+}
+
+void MacroRandomPurchase() {
+    int randomChoice = RandomInt(0, 30);
+    int randomBase = RandomInt(0, 5);
+
+    if (randomChoice <= 1) {
+        // Buy a Barracks
+        if (randomBase != 0) {
+            MacroMakePurchase("Barracks", "SCV", randomBase);
+        }
+    } if (randomChoice <= 10) {
+        // Buy a Marine
+        MacroMakePurchase("Marine", "Barracks", randomBase);
+    } else if (randomChoice == 30) {
+        // Buy a supply depot
+        MacroMakePurchase("SupplyDepot", "SCV", randomBase);
+    } else {
+        // Buy an SCV
+        MacroMakePurchase("SCV", "CommandCenter", randomBase);
+    }
+}
+
+bool MacroOnMineralsPropertyChanged(bool checkConds, bool runActions) {
+    int i = 0;
+    if (gDebugChatOn && gMineralCountOn) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Current minerals: ") + IntToText(PlayerGetPropertyInt(gTeamNumber, c_playerPropMinerals)) + StringToText(" Current Vespene: ") + IntToText(PlayerGetPropertyInt(gTeamNumber, c_playerPropVespene)));
+    }
+    // Determine if we have the necessary amount of minerals for our next purchase action
+    if (gPurchaseListCount > 0 && PlayerGetPropertyInt(gTeamNumber, c_playerPropMinerals) >= gPurchaseList[0].mineralPrice && PlayerGetPropertyInt(gTeamNumber, c_playerPropVespene) >= gPurchaseList[0].vespenePrice) {
+        if (gDebugChatOn) {
+            //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Attempting to purchase: " + gPurchaseList[0].item));
+        }
+        // Make the purchase
+        if (MacroMakePurchase(gPurchaseList[0].item, gPurchaseList[0].structureToPurchaseFrom, gPurchaseList[0].baseNumber)) {
+            // Shift all purchase items down 1
+            UtilsMadePurchase(0);
+        } else if ((PlayerGetPropertyInt(gTeamNumber, c_playerPropMinerals) - 50 > gPurchaseList[0].mineralPrice && gPurchaseList[0].item != "SCV")) {
+            MacroRandomPurchase();
+        }
+    } else if (gPurchaseListCount > 0 && PlayerGetPropertyInt(gTeamNumber, c_playerPropMinerals) - 50 > gPurchaseList[0].mineralPrice) {
+        MacroRandomPurchase();
+    } else if (gPurchaseListCount == 0 && PlayerGetPropertyInt(gTeamNumber, c_playerPropMinerals) > 50) {
+        MacroRandomPurchase();
+    }
+    return true;
+}

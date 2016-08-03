@@ -1,0 +1,26 @@
+unit LongTravelSlowestUnitInGroup(string mygroupName){
+  int minspeed=1000000;
+  unit slowest;
+  int speed;
+  int i;
+  for(i=0; i<1000; i+=1){
+    if(gMyUnitList[i].groupName!=mygroupName){//gMyUnitList[i]==null||
+      continue;
+    }
+    speed=UnitGetPropertyInt(gMyUnitList[i].friendly,c_unitPropMovementSpeed,true);
+    if(speed<minspeed){
+      minspeed=speed;
+      slowest=gMyUnitList[i].friendly;
+    }
+
+  }
+  return slowest;
+}
+
+void LongTravelEmbark(unitgroup group, string groupName, string pointName){
+  unit leader;
+  leader = LongTravelSlowestUnitInGroup(groupName);
+  UnitGroupRemove(group, leader);
+  UnitIssueOrder(leader, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(pointName)), c_orderQueueReplace);
+  UnitGroupIssueOrder(group, OrderTargetingUnit(AbilityCommand("move", 0), leader), c_orderQueueAddToFront);
+}

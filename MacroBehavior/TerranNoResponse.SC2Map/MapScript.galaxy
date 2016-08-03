@@ -1,0 +1,124 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   AnyBot Macro Test
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_Init;
+trigger gt_AnyBotWin;
+trigger gt_AnyBotLose;
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script: Main
+//--------------------------------------------------------------------------------------------------
+include "scripts/main"
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script Initialization
+//--------------------------------------------------------------------------------------------------
+void InitCustomScript () {
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Init
+//--------------------------------------------------------------------------------------------------
+bool gt_Init_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    SoundtrackPlay(PlayerGroupAll(), c_soundtrackCategoryMusic, "Ambience_Aiur_Jungle_Quad", c_soundtrackCueAny, c_soundtrackIndexAny, true);
+    mapInitiated();
+    VisEnable(c_visTypeFog, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Init_Init () {
+    gt_Init = TriggerCreate("gt_Init_Func");
+    TriggerAddEventMapInit(gt_Init);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AnyBotWin
+//--------------------------------------------------------------------------------------------------
+bool gt_AnyBotWin_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitGroupCount(UnitGroupAlliance(1, c_unitAllianceAlly, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    GameOver(1, c_gameOverDefeat, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AnyBotWin_Init () {
+    gt_AnyBotWin = TriggerCreate("gt_AnyBotWin_Func");
+    TriggerAddEventUnitDied(gt_AnyBotWin, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AnyBotLose
+//--------------------------------------------------------------------------------------------------
+bool gt_AnyBotLose_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitGroupCount(UnitGroupAlliance(2, c_unitAllianceAlly, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    GameOver(1, c_gameOverVictory, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AnyBotLose_Init () {
+    gt_AnyBotLose = TriggerCreate("gt_AnyBotLose_Func");
+    TriggerAddEventUnitDied(gt_AnyBotLose, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_Init_Init();
+    gt_AnyBotWin_Init();
+    gt_AnyBotLose_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitCustomScript();
+    InitTriggers();
+}

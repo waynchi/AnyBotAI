@@ -1,0 +1,71 @@
+struct EnemyUnit {
+  unit enemy;
+  fixed assignedDamage;
+};
+
+struct EnemyStructure {
+    unit enemy;
+    fixed assignedDamage;
+};
+
+struct FriendlyUnit {
+  unit friendly;
+  bool assigned;
+  string groupName;
+};
+
+struct FriendlyStructure {
+    unit friendly;
+    bool assigned;
+    bool hasAddOn;
+};
+
+struct FriendlyUnitGroup {
+    string groupName;
+    unitgroup group;
+    int expectedSize;
+};
+
+struct Purchase {
+    string item;
+    int mineralPrice;
+    int vespenePrice;
+    int priority;
+    string structureToPurchaseFrom;
+};
+
+// Debug variables
+bool gDebugChatOn = true;
+bool gMineralCountOn = false;
+
+// Data about AnyBot
+//// Team Number
+int gTeamNumber = 2;
+//// Tracking our units
+int gMyUnitCount = 0;
+FriendlyUnit[1000] gMyUnitList;
+string[24] gMyPossibleUnits;
+//// Tracking our unit groups
+int gCurrentlyCreatingAttackGroup = 1;
+int gCurrentAttackGroupExpectedSize = 0;
+int gCurrentlyCreatingSCVGroup = 1;
+FriendlyUnitGroup[20] gMyUnitGroupList;
+int gMyUnitGroupCount = 0;
+//// Tracking our structures
+int gMyStructureCount = 0;
+FriendlyStructure[1000] gMyStructureList;
+string[30] gMyPossibleStructures;
+//// Tracking our upcoming purchases
+int gPurchaseListCount = 0;
+Purchase[1000] gPurchaseList;
+
+// Data about the Human
+//// Tracking their units
+int gEnemyUnitCount = 0;
+EnemyUnit[1000] gEnemyUnitList;
+int gEnemiesInRangeCount = 0;
+EnemyUnit[1000] gEnemiesInRange;
+//// Tracking their structures
+int gEnemyStructureCount = 0;
+EnemyStructure[1000] gEnemyStructureList;
+string[23] gEnemyPossibleStructures;

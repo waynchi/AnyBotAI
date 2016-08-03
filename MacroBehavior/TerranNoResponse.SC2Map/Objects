@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlacedObjects Version="27">
+    <ObjectUnit Id="357" Variation="4" Position="7,116.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="358" Variation="2" Position="8,118.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="359" Variation="5" Position="9,120.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="360" Variation="9" Position="12,121.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="361" Variation="9" Position="8,113.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="3" Variation="6" Position="121,120.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="4" Variation="3" Position="120,121.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="5" Variation="3" Position="122,119.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="6" Variation="1" Position="122,117.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="7" Variation="1" Position="118,121.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="8" Variation="5" Position="9,7.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="9" Variation="8" Position="8,8.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="10" Variation="5" Position="7,9.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="11" Variation="9" Position="7,11.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="12" Variation="4" Position="12,7.5,0" Scale="1,1,1" UnitType="MineralField750"/>
+    <ObjectUnit Id="349" Variation="8" Position="120,10.5,0" Scale="1,1,1" UnitType="PurifierRichMineralField"/>
+    <ObjectUnit Id="350" Variation="1" Position="119,9.5,0" Scale="1,1,1" UnitType="PurifierRichMineralField"/>
+    <ObjectUnit Id="351" Variation="1" Position="118,8.5,0" Scale="1,1,1" UnitType="PurifierRichMineralField"/>
+    <ObjectUnit Id="352" Position="116,7.5,0" Scale="1,1,1" UnitType="PurifierRichMineralField"/>
+    <ObjectUnit Id="353" Position="120,12.5,0" Scale="1,1,1" UnitType="PurifierRichMineralField"/>
+    <ObjectUnit Id="348" Position="110.5,6.5,0" Scale="1,1,1" UnitType="RichVespeneGeyser"/>
+    <ObjectUnit Id="354" Position="120.5,17.5,0" Scale="1,1,1" UnitType="RichVespeneGeyser"/>
+    <ObjectUnit Id="355" Position="8.5,109.5,0" Scale="1,1,1" UnitType="RichVespeneGeyser"/>
+    <ObjectUnit Id="344" Position="113.5,122.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="345" Position="122.5,112.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="346" Position="6.5,15.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="347" Position="15.5,6.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="356" Position="16.5,120.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectDoodad Id="14" Variation="2" Position="125.9013,125.9614,11.9997" Rotation="0.7854" Scale="0.9577,0.9577,0.9577" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="16" Variation="4" Position="127.348,120.3298,10.0087" Rotation="5.395" Scale="1.0461,1.0461,1.0461" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="17" Variation="5" Position="127.407,115.2026,9.9997" Rotation="1.2763" Scale="1.0183,1.0183,1.0183" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="18" Variation="4" Position="126.9423,110.3261,9.9997" Rotation="3.964" Scale="1.0007,1.0007,1.0007" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="19" Variation="4" Position="126.7053,106.7868,9.9997" Rotation="0.2297" Scale="0.989,0.989,0.989" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="20" Position="126.3476,103.0603,9.9997" Rotation="3.5646" Scale="1.0078,1.0078,1.0078" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="21" Variation="5" Position="126.7392,100.2458,9.9997" Rotation="1.8066" Scale="1.0144,1.0144,1.0144" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="22" Position="126.6408,96.0351,7.9997" Rotation="3.5781" Scale="0.957,0.957,0.957" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="23" Variation="5" Position="126.6308,93.2836,7.9997" Rotation="2.6098" Scale="0.9716,0.9716,0.9716" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="24" Variation="3" Position="126.4265,90.4924,7.9997" Rotation="4.3161" Scale="0.9545,0.9545,0.9545" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="25" Variation="5" Position="126.2197,87.305,7.9997" Rotation="0.2744" Scale="1.0363,1.0363,1.0363" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="26" Variation="5" Position="120.8415,127.3923,11.9997" Rotation="5.6835" Scale="0.9631,0.9631,0.9631" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="27" Variation="1" Position="117.2124,127.3923,9.9997" Rotation="0.3078" Scale="1.0173,1.0173,1.0173" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="28" Variation="2" Position="123.125,127.4794,11.9997" Rotation="5.2324" Scale="1.0146,1.0146,1.0146" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="29" Variation="2" Position="126.347,124.6335,11.9997" Rotation="4.7453" Scale="0.972,0.972,0.972" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="30" Variation="2" Position="126.589,122.8684,11.9997" Rotation="4.6384" Scale="1.0363,1.0363,1.0363" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="31" Position="113.1704,127.16,9.9997" Rotation="0.9025" Scale="0.9772,0.9772,0.9772" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="32" Variation="5" Position="110.7934,127.0786,9.9997" Rotation="4.7866" Scale="0.9882,0.9882,0.9882" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="33" Variation="1" Position="109.3735,127.2353,9.9997" Rotation="0.8825" Scale="1.0292,1.0292,1.0292" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="34" Variation="2" Position="107.4978,127.2353,9.9997" Rotation="1.4521" Scale="1.0478,1.0478,1.0478" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="35" Variation="2" Position="105.9616,127.3166,9.9997" Rotation="4.9072" Scale="0.9621,0.9621,0.9621" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="36" Variation="2" Position="104.085,127.3166,9.9997" Rotation="6.0717" Scale="0.9687,0.9687,0.9687" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="37" Variation="4" Position="102.904,127.16,9.9997" Rotation="4.9711" Scale="0.9531,0.9531,0.9531" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="38" Variation="1" Position="101.8293,127.16,9.9997" Rotation="0.986" Scale="0.9956,0.9956,0.9956" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="39" Variation="4" Position="100.5717,127.16,9.9997" Rotation="0.9436" Scale="0.9924,0.9924,0.9924" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="40" Variation="5" Position="99.4973,127.16,9.9997" Rotation="0.7416" Scale="0.967,0.967,0.967" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="41" Variation="4" Position="98.4797,127.16,9.9997" Rotation="2.4577" Scale="1.022,1.022,1.022" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="42" Variation="5" Position="97.3557,127.0786,9.9997" Rotation="0.5544" Scale="1.0476,1.0476,1.0476" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="43" Variation="1" Position="95.4248,127.0786,9.9997" Rotation="1.7006" Scale="1.0383,1.0383,1.0383" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="44" Variation="2" Position="94.1791,127.0786,9.9975" Rotation="1.0815" Scale="0.951,0.951,0.951" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="45" Variation="5" Position="92.7436,127.2353,7.9997" Rotation="4.5673" Scale="0.963,0.963,0.963" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="46" Variation="3" Position="91.2937,127.3923,7.9997" Rotation="4.2111" Scale="0.9633,0.9633,0.9633" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="47" Position="90.0915,127.4794,7.9997" Rotation="3.9072" Scale="1.0153,1.0153,1.0153" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="48" Variation="2" Position="126.0744,85.3461,7.9997" Rotation="1.874" Scale="0.9831,0.9831,0.9831" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="49" Variation="3" Position="126.0183,83.6796,7.9997" Rotation="3.5051" Scale="1.0317,1.0317,1.0317" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="50" Variation="3" Position="126.1262,81.8862,7.9997" Rotation="4.15" Scale="1.0231,1.0231,1.0231" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="51" Variation="4" Position="126.198,80.7395,7.9997" Rotation="3.4023" Scale="1.014,1.014,1.014" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="52" Variation="3" Position="126.368,79.3046,7.9997" Rotation="4.4907" Scale="1.0317,1.0317,1.0317" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="53" Variation="1" Position="126.426,78.1948,7.9997" Rotation="1.618" Scale="0.9914,0.9914,0.9914" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="54" Variation="1" Position="126.453,76.0175,7.9997" Rotation="0.6044" Scale="1.0483,1.0483,1.0483" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="55" Variation="2" Position="126.4633,74.878,7.9997" Rotation="3.8347" Scale="1.004,1.004,1.004" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="56" Variation="3" Position="126.423,73.8276,7.9997" Rotation="5.883" Scale="0.953,0.953,0.953" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="57" Variation="5" Position="126.3244,72.6484,7.9997" Rotation="3.124" Scale="1.0026,1.0026,1.0026" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="58" Position="126.2653,71.0886,7.9997" Rotation="4.0993" Scale="1.0126,1.0126,1.0126" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="59" Position="126.1572,69.6191,7.9997" Rotation="1.8115" Scale="0.9704,0.9704,0.9704" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="60" Variation="3" Position="126.0517,68.182,7.9997" Rotation="1.876" Scale="1.049,1.049,1.049" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="61" Variation="3" Position="125.973,66.0747,7.9997" Rotation="1.8327" Scale="0.982,0.982,0.982" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="62" Variation="4" Position="125.876,64.8266,7.9997" Rotation="4.22" Scale="0.9553,0.9553,0.9553" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="63" Variation="5" Position="125.8217,63.3566,7.9997" Rotation="4.527" Scale="0.9956,0.9956,0.9956" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="64" Variation="5" Position="125.8132,61.797,7.9997" Rotation="3.9033" Scale="1.0131,1.0131,1.0131" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="65" Variation="1" Position="125.7453,59.9802,7.9997" Rotation="3.5266" Scale="0.989,0.989,0.989" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="66" Variation="5" Position="125.7333,58.3752,7.9997" Rotation="4.6032" Scale="0.9533,0.9533,0.9533" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="67" Variation="1" Position="125.672,56.7521,7.9997" Rotation="5.9697" Scale="0.9958,0.9958,0.9958" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="68" Variation="1" Position="125.6696,55.438,7.9997" Rotation="5.4521" Scale="0.9914,0.9914,0.9914" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="69" Variation="2" Position="125.6247,54.2551,7.9997" Rotation="4.9768" Scale="1.0078,1.0078,1.0078" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="70" Position="125.5705,52.8293,7.9997" Rotation="5.8571" Scale="0.9702,0.9702,0.9702" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="71" Variation="4" Position="125.5112,51.2797,7.9997" Rotation="3.6176" Scale="0.9958,0.9958,0.9958" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="72" Variation="4" Position="125.469,50.1667,7.9997" Rotation="5.9738" Scale="1.0065,1.0065,1.0065" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="73" Variation="5" Position="125.7622,47.265,7.9997" Rotation="5.305" Scale="1.0275,1.0275,1.0275" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="74" Variation="4" Position="125.6862,44.7436,7.9997" Rotation="5.4726" Scale="0.9626,0.9626,0.9626" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="75" Variation="1" Position="125.7014,42.9887,7.9997" Rotation="4.8698" Scale="1.0336,1.0336,1.0336" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="76" Variation="3" Position="125.6035,40.1286,7.9997" Rotation="3.2807" Scale="1.0107,1.0107,1.0107" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="77" Variation="4" Position="125.5605,38.3452,7.9997" Rotation="5.8991" Scale="1.025,1.025,1.025" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="78" Variation="1" Position="125.4438,36.1562,0.0241" Rotation="5.01" Scale="0.9797,0.9797,0.9797" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="79" Variation="4" Position="125.3571,34.5263,0" Rotation="0.2387" Scale="1.0043,1.0043,1.0043" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="80" Variation="5" Position="125.296,32.4458,0" Rotation="1.6125" Scale="1.0268,1.0268,1.0268" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="81" Variation="5" Position="125.2238,30.1892,0" Rotation="5.476" Scale="1.0051,1.0051,1.0051" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="82" Variation="5" Position="125.179,28.4577,0" Rotation="0.9553" Scale="1.0151,1.0151,1.0151" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="83" Variation="3" Position="125.1787,26.8774,0" Rotation="6.1" Scale="0.9787,0.9787,0.9787" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="84" Position="125.2446,25.4958,0" Rotation="0.18" Scale="1.0065,1.0065,1.0065" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="85" Position="125.297,23.9274,7.9997" Rotation="6.02" Scale="1.041,1.041,1.041" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="86" Variation="4" Position="125.3146,22.606,7.9997" Rotation="1.7592" Scale="1.0246,1.0246,1.0246" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="87" Variation="3" Position="125.3894,21.5131,7.9997" Rotation="2.4877" Scale="0.984,0.984,0.984" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="88" Variation="2" Position="125.466,20.4885,7.9997" Rotation="5.982" Scale="0.965,0.965,0.965" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="89" Variation="1" Position="125.6257,19.3806,7.9997" Rotation="6.1486" Scale="0.9824,0.9824,0.9824" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="90" Variation="4" Position="125.7287,18.1428,7.9997" Rotation="3.6166" Scale="1.0024,1.0024,1.0024" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="91" Variation="2" Position="125.8666,16.2597,7.9997" Rotation="4.6452" Scale="0.9987,0.9987,0.9987" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="92" Position="125.8371,15.127,7.9997" Rotation="4.7023" Scale="0.993,0.993,0.993" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="93" Variation="2" Position="125.8881,13.9201,7.9997" Rotation="0.4011" Scale="1.0288,1.0288,1.0288" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="94" Position="126.6157,13.2055,7.9997" Rotation="4.4204" Scale="0.9943,0.9943,0.9943" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="95" Variation="5" Position="126.365,11.42,7.987" Rotation="2.5327" Scale="1.0307,1.0307,1.0307" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="96" Variation="2" Position="126.2021,9.4057,7.9956" Rotation="4.3046" Scale="0.9743,0.9743,0.9743" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="97" Position="126.0544,7.5761,7.9855" Rotation="5.255" Scale="0.9645,0.9645,0.9645" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="98" Position="125.9101,6.4226,7.9997" Rotation="6.1381" Scale="1.0336,1.0336,1.0336" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="99" Variation="1" Position="125.5002,5.0961,7.9997" Rotation="2.5534" Scale="1.0283,1.0283,1.0283" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="100" Variation="4" Position="124.9611,3.9802,7.9997" Rotation="2.4055" Scale="1.0288,1.0288,1.0288" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="101" Variation="4" Position="124.1828,2.7597,7.9997" Rotation="2.1162" Scale="0.9853,0.9853,0.9853" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="102" Variation="1" Position="123.104,1.441,7.9997" Rotation="0.2036" Scale="1.0256,1.0256,1.0256" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="103" Variation="3" Position="122.078,0.5554,7.9997" Rotation="0.2646" Scale="1.0065,1.0065,1.0065" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="104" Variation="3" Position="126.4777,1.921,7.9997" Rotation="0.1318" Scale="1.0275,1.0275,1.0275" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="105" Variation="3" Position="126.3635,0.6135,7.9997" Rotation="4.7805" Scale="1.036,1.036,1.036" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="106" Variation="3" Position="120.9494,1.3222,7.9997" Rotation="2.2226" Scale="1.027,1.027,1.027" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="107" Variation="1" Position="119.3183,0.908,7.9997" Rotation="2.9523" Scale="0.9758,0.9758,0.9758" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="108" Variation="5" Position="118.1428,0.6726,7.9997" Rotation="1.4182" Scale="0.9978,0.9978,0.9978" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="109" Variation="3" Position="108.557,0.8496,7.9946" Rotation="5.6506" Scale="0.9924,0.9924,0.9924" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="110" Variation="1" Position="110.0512,1.1442,7.9997" Rotation="0.475" Scale="0.9707,0.9707,0.9707" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="111" Variation="1" Position="112.0117,0.908,7.9997" Rotation="2.1901" Scale="1.02,1.02,1.02" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="112" Variation="2" Position="113.2304,0.7343,7.9997" Rotation="1.0842" Scale="0.9931,0.9931,0.9931" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="113" Variation="4" Position="107.2612,0.9184,8.0014" Rotation="5.6435" Scale="1.0476,1.0476,1.0476" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="114" Variation="4" Position="105.7961,0.9184,7.9882" Rotation="0.9973" Scale="0.97,0.97,0.97" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="115" Variation="3" Position="103.9367,0.8596,0" Rotation="3.4101" Scale="0.9711,0.9711,0.9711" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="116" Position="102.1328,0.9184,0" Rotation="1.426" Scale="1.0341,1.0341,1.0341" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="117" Variation="3" Position="100.9228,1.0366,0" Rotation="0.0305" Scale="0.9531,0.9531,0.9531" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="118" Position="99.2238,1.1586,0" Rotation="2.591" Scale="0.9777,0.9777,0.9777" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="119" Variation="3" Position="97.5097,1.1586,0" Rotation="5.262" Scale="0.9506,0.9506,0.9506" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="120" Position="95.3103,1.0964,0" Rotation="0.7321" Scale="1.001,1.001,1.001" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="121" Variation="1" Position="93.157,1.0366,0" Rotation="3.9196" Scale="1.0417,1.0417,1.0417" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="122" Variation="3" Position="91.3994,0.978,0" Rotation="3.9306" Scale="1.0427,1.0427,1.0427" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="123" Variation="1" Position="89.589,1.0366,0" Rotation="3.1271" Scale="1.019,1.019,1.019" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="124" Variation="5" Position="88.127,1.0964,0" Rotation="1.6413" Scale="1.0207,1.0207,1.0207" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="125" Variation="2" Position="86.9494,1.1586,0" Rotation="1.1606" Scale="1,1,1" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="126" Variation="1" Position="85.628,1.215,0" Rotation="1.148" Scale="0.9897,0.9897,0.9897" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="127" Variation="4" Position="84.113,1.275,0" Rotation="5.0937" Scale="1.0017,1.0017,1.0017" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="128" Position="82.7348,1.453,0" Rotation="4.7802" Scale="1.0075,1.0075,1.0075" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="129" Variation="2" Position="81.501,1.632,0" Rotation="1.9384" Scale="0.9531,0.9531,0.9531" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="130" Variation="1" Position="80.1691,1.7517,0" Rotation="3.7595" Scale="0.952,0.952,0.952" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="131" Position="78.8847,1.8713,0" Rotation="2.7231" Scale="0.9538,0.9538,0.9538" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="132" Variation="2" Position="77.5434,2.0517,0" Rotation="5.4157" Scale="1.048,1.048,1.048" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="133" Variation="5" Position="76.111,2.1113,0" Rotation="1.7724" Scale="1.035,1.035,1.035" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="134" Position="74.9248,2.1718,7.986" Rotation="3.4475" Scale="0.9777,0.9777,0.9777" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="135" Variation="2" Position="73.4465,2.1718,7.9997" Rotation="1.9982" Scale="0.992,0.992,0.992" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="136" Variation="3" Position="71.9123,2.2314,7.9997" Rotation="2.6962" Scale="0.9892,0.9892,0.9892" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="137" Position="70.475,2.2922,7.9997" Rotation="6.1464" Scale="0.9748,0.9748,0.9748" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="138" Variation="5" Position="68.703,2.2922,7.9997" Rotation="4.6901" Scale="0.9704,0.9704,0.9704" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="139" Variation="4" Position="67.0344,1.6367,7.9997" Rotation="2.807" Scale="1.0346,1.0346,1.0346" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="140" Variation="3" Position="64.7875,1.7556,7.9997" Rotation="3.312" Scale="0.951,0.951,0.951" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="141" Variation="2" Position="62.6408,1.8745,7.9997" Rotation="3.848" Scale="1.0097,1.0097,1.0097" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="142" Position="61.362,1.8745,7.9997" Rotation="1.5424" Scale="1.021,1.021,1.021" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="143" Variation="3" Position="59.4035,1.994,7.9997" Rotation="1.1345" Scale="0.9968,0.9968,0.9968" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="144" Variation="1" Position="57.7875,2.0566,7.9997" Rotation="2.7453" Scale="0.9504,0.9504,0.9504" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="145" Variation="3" Position="55.5275,2.1135,7.9997" Rotation="0.6562" Scale="1.0446,1.0446,1.0446" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="146" Variation="5" Position="54.3513,2.0566,7.9997" Rotation="3.5363" Scale="0.9626,0.9626,0.9626" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="147" Variation="3" Position="52.9787,1.994,7.9997" Rotation="4.3957" Scale="1.0131,1.0131,1.0131" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="148" Variation="3" Position="51.7036,1.994,7.9997" Rotation="0.2077" Scale="1.0041,1.0041,1.0041" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="149" Position="50.6262,1.994,7.9997" Rotation="0.8771" Scale="1.0451,1.0451,1.0451" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="150" Variation="4" Position="48.9558,1.994,7.9997" Rotation="5.2841" Scale="1.0007,1.0007,1.0007" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="151" Position="47.7795,1.994,7.9997" Rotation="1.4458" Scale="1.0434,1.0434,1.0434" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="152" Variation="4" Position="46.6032,1.994,7.9997" Rotation="1.7712" Scale="1.0366,1.0366,1.0366" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="153" Position="43.7626,1.9338,7.9997" Rotation="1.178" Scale="1.0012,1.0012,1.0012" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="154" Variation="2" Position="41.715,1.8146,7.9997" Rotation="0.716" Scale="1.039,1.039,1.039" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="155" Variation="4" Position="40.491,1.8146,7.9997" Rotation="4.4372" Scale="0.953,0.953,0.953" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="156" Variation="1" Position="38.971,1.8146,7.9997" Rotation="5.2331" Scale="0.9992,0.9992,0.9992" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="157" Variation="2" Position="36.727,1.0322,7.9997" Rotation="2.4204" Scale="1.0166,1.0166,1.0166" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="158" Variation="4" Position="35.5307,0.9733,7.9997" Rotation="0.956" Scale="0.9895,0.9895,0.9895" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="159" Variation="3" Position="33.0537,0.9201,7.9997" Rotation="2.3193" Scale="0.9704,0.9704,0.9704" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="160" Variation="3" Position="31.8034,0.7517,7.9997" Rotation="4.4782" Scale="1.0317,1.0317,1.0317" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="161" Variation="4" Position="30.6997,0.5812,7.9997" Rotation="4.486" Scale="0.961,0.961,0.961" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="162" Variation="5" Position="21.2145,0.528,9.9997" Rotation="5.153" Scale="0.9733,0.9733,0.9733" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="163" Variation="4" Position="23.397,0.64,9.9997" Rotation="2.103" Scale="1.0058,1.0058,1.0058" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="164" Position="27.8596,0.693,9.9997" Rotation="0.7834" Scale="0.9987,0.9987,0.9987" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="165" Position="26.8723,0.9201,9.9997" Rotation="3.9936" Scale="0.9682,0.9682,0.9682" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="166" Variation="5" Position="25.7844,1.0856,9.9997" Rotation="1.9113" Scale="0.9587,0.9587,0.9587" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="167" Variation="2" Position="24.453,1.1447,9.9997" Rotation="4.6271" Scale="1.0354,1.0354,1.0354" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="168" Variation="3" Position="19.977,1.0856,9.9997" Rotation="0.254" Scale="1.0366,1.0366,1.0366" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="169" Position="18.8356,1.0856,9.9997" Rotation="1.6313" Scale="1.03,1.03,1.03" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="170" Variation="1" Position="17.4064,1.0856,9.9997" Rotation="3.044" Scale="0.9892,0.9892,0.9892" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="171" Variation="4" Position="16.2172,1.0856,9.9997" Rotation="1.1464" Scale="0.9726,0.9726,0.9726" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="172" Variation="4" Position="14.7893,1.0856,9.9997" Rotation="2.109" Scale="1.0175,1.0175,1.0175" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="173" Variation="1" Position="13.6948,1.0856,9.9997" Rotation="0.213" Scale="0.974,0.974,0.974" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="174" Variation="4" Position="12.219,1.0856,9.9997" Rotation="4.574" Scale="1.0231,1.0231,1.0231" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="175" Variation="2" Position="11.219,1.0856,9.9997" Rotation="0.2436" Scale="0.9965,0.9965,0.9965" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="176" Variation="5" Position="9.982,1.0856,9.9997" Rotation="3.0083" Scale="0.9802,0.9802,0.9802" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="177" Variation="5" Position="8.5004,1.1447,9.9997" Rotation="4.9577" Scale="1.0346,1.0346,1.0346" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="178" Variation="3" Position="7.4006,1.1982,9.9997" Rotation="2.911" Scale="0.9626,0.9626,0.9626" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="179" Variation="5" Position="6.048,1.37,9.9997" Rotation="5.5415" Scale="0.9821,0.9821,0.9821" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="180" Variation="3" Position="4.496,1.594,9.9997" Rotation="0.1152" Scale="1.004,1.004,1.004" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="181" Variation="4" Position="3.4645,1.8208,9.9997" Rotation="3.9946" Scale="0.962,0.962,0.962" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="182" Variation="1" Position="2.3815,2.0515,9.9997" Rotation="3.2045" Scale="0.9645,0.9645,0.9645" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="183" Variation="5" Position="1.1511,2.28,9.9997" Rotation="4.4414" Scale="1.0014,1.0014,1.0014" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="184" Position="0.6323,19.732,9.9997" Rotation="4.706" Scale="1.002,1.002,1.002" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="185" Position="0.5483,18.35,9.9997" Rotation="0.3303" Scale="0.969,0.969,0.969" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="186" Variation="5" Position="0.6943,13.764,9.9997" Rotation="5.638" Scale="1.0097,1.0097,1.0097" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="187" Variation="2" Position="1.0717,15.061,9.9997" Rotation="0.1003" Scale="0.9523,0.9523,0.9523" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="188" Variation="5" Position="1.0361,16.0827,9.9997" Rotation="0.3461" Scale="1.018,1.018,1.018" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="189" Position="0.609,10.901,9.9997" Rotation="5.2001" Scale="1.0441,1.0441,1.0441" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="190" Variation="2" Position="0.9833,9.344,9.9997" Rotation="2.7773" Scale="1.0097,1.0097,1.0097" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="191" Variation="3" Position="1.1022,7.9853,9.9997" Rotation="5.0761" Scale="1.0383,1.0383,1.0383" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="192" Variation="2" Position="1.0742,6.7058,9.9997" Rotation="3.4645" Scale="0.9658,0.9658,0.9658" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="193" Variation="2" Position="1.171,5.6057,9.9997" Rotation="4.8317" Scale="1.0368,1.0368,1.0368" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="194" Variation="5" Position="1.271,4.472,9.9997" Rotation="4.706" Scale="1.0322,1.0322,1.0322" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="195" Variation="3" Position="1.5627,3.2065,9.9997" Rotation="1.0031" Scale="1.0461,1.0461,1.0461" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="196" Variation="4" Position="0.7492,21.3986,12.0063" Rotation="0.9624" Scale="1.0187,1.0187,1.0187" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="197" Position="0.94,22.8427,11.9997" Rotation="0.2812" Scale="0.962,0.962,0.962" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="198" Variation="1" Position="1.037,24.2395,11.9997" Rotation="1.7666" Scale="0.9887,0.9887,0.9887" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="199" Variation="5" Position="1.0822,25.6694,11.9997" Rotation="4.9794" Scale="0.9631,0.9631,0.9631" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="200" Variation="1" Position="1.0178,27.1923,11.9997" Rotation="4.65" Scale="1.043,1.043,1.043" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="201" Variation="1" Position="0.9091,28.6032,12.0043" Rotation="0.127" Scale="1.0092,1.0092,1.0092" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="202" Variation="3" Position="0.7788,30.9873,9.9997" Rotation="1.824" Scale="1.0493,1.0493,1.0493" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="203" Variation="4" Position="0.694,32.0944,9.9997" Rotation="4.5837" Scale="1.047,1.047,1.047" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="204" Variation="4" Position="0.5441,34.0502,9.9997" Rotation="3.0097" Scale="0.9736,0.9736,0.9736" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="205" Variation="5" Position="0.7934,35.2995,9.9997" Rotation="1.052" Scale="0.9636,0.9636,0.9636" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="206" Variation="1" Position="0.9387,37.4016,9.9926" Rotation="1.235" Scale="0.9848,0.9848,0.9848" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="207" Variation="1" Position="1.0881,39.0063,7.9997" Rotation="0.463" Scale="0.981,0.981,0.981" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="208" Variation="5" Position="1.1474,40.578,7.9997" Rotation="1.8613" Scale="1.0151,1.0151,1.0151" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="209" Position="1.173,41.9904,7.9997" Rotation="3.4555" Scale="1.0051,1.0051,1.0051" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="210" Variation="1" Position="1.1538,43.367,7.9997" Rotation="5.767" Scale="0.954,0.954,0.954" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="211" Variation="4" Position="1.116,44.9675,7.9997" Rotation="3.3566" Scale="1.0122,1.0122,1.0122" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="212" Variation="2" Position="1.1076,46.2614,7.9997" Rotation="2.0974" Scale="1.0441,1.0441,1.0441" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="213" Variation="1" Position="1.064,47.3632,7.9997" Rotation="0.593" Scale="1.0451,1.0451,1.0451" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="214" Variation="2" Position="1.0673,48.5576,7.9997" Rotation="3.8635" Scale="1.017,1.017,1.017" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="215" Position="1.0217,49.6962,7.9997" Rotation="2.046" Scale="0.972,0.972,0.972" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="216" Variation="2" Position="0.9465,51.2121,7.9997" Rotation="4.7751" Scale="1.0007,1.0007,1.0007" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="217" Position="0.9365,52.6147,7.9997" Rotation="1.19" Scale="0.963,0.963,0.963" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="218" Position="0.9511,53.7353,7.9997" Rotation="4.3476" Scale="1.0146,1.0146,1.0146" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="219" Variation="5" Position="0.9445,55.7966,7.9997" Rotation="3.6274" Scale="1.0256,1.0256,1.0256" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="220" Variation="2" Position="0.9321,57.986,7.9997" Rotation="1.9677" Scale="0.9904,0.9904,0.9904" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="221" Position="0.9616,59.0231,7.9997" Rotation="3.874" Scale="1.0065,1.0065,1.0065" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="222" Variation="4" Position="0.9553,60.8078,7.9997" Rotation="1.4118" Scale="1.0078,1.0078,1.0078" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="223" Variation="3" Position="1.018,62.1184,7.9997" Rotation="5.0798" Scale="1.0053,1.0053,1.0053" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="224" Position="1.0146,63.6735,7.9997" Rotation="2.841" Scale="0.9958,0.9958,0.9958" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="225" Variation="3" Position="1.0605,64.7124,7.9997" Rotation="2.0297" Scale="1.0444,1.0444,1.0444" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="226" Variation="3" Position="1.0925,65.9333,7.9997" Rotation="3.3566" Scale="1.008,1.008,1.008" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="227" Variation="3" Position="1.1413,68.095,7.9997" Rotation="3.9633" Scale="1.0244,1.0244,1.0244" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="228" Variation="5" Position="1.175,69.3764,7.9997" Rotation="5.443" Scale="0.9514,0.9514,0.9514" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="229" Variation="3" Position="1.1291,71.0407,7.9997" Rotation="1.9602" Scale="1.0478,1.0478,1.0478" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="230" Variation="4" Position="1.1137,72.3796,7.9997" Rotation="4.1054" Scale="1.0112,1.0112,1.0112" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="231" Position="1.1198,74.6813,7.9997" Rotation="0.6403" Scale="1.0336,1.0336,1.0336" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="232" Variation="5" Position="1.093,76.2133,7.9997" Rotation="2.7211" Scale="0.9821,0.9821,0.9821" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="233" Variation="4" Position="1.139,77.5144,7.9997" Rotation="4.1752" Scale="0.9521,0.9521,0.9521" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="234" Variation="1" Position="1.158,79.1748,9.4616" Rotation="4.6772" Scale="1.0043,1.0043,1.0043" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="235" Position="1.2197,81.0087,10.0217" Rotation="5.311" Scale="0.9687,0.9687,0.9687" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="236" Position="1.2097,82.4621,9.9997" Rotation="5.6562" Scale="1.0334,1.0334,1.0334" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="237" Variation="3" Position="1.2377,84.1591,9.9997" Rotation="5.1723" Scale="0.956,0.956,0.956" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="238" Position="1.2753,85.7526,9.9997" Rotation="1.51" Scale="1.0041,1.0041,1.0041" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="239" Variation="1" Position="1.2543,87.4453,9.9997" Rotation="0.0771" Scale="0.9694,0.9694,0.9694" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="240" Variation="5" Position="1.2216,89.3312,9.9997" Rotation="1.5463" Scale="0.9777,0.9777,0.9777" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="241" Position="1.1906,91.9675,9.9997" Rotation="3.0012" Scale="1.0168,1.0168,1.0168" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="242" Variation="5" Position="1.1313,94.284,9.9997" Rotation="5.8452" Scale="1.0463,1.0463,1.0463" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="243" Variation="3" Position="0.8881,95.687,9.9997" Rotation="2.0058" Scale="1.0156,1.0156,1.0156" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="244" Variation="4" Position="0.9448,97.2001,9.9997" Rotation="4.9077" Scale="1.0451,1.0451,1.0451" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="245" Variation="4" Position="0.9777,98.4904,9.9997" Rotation="2.8598" Scale="1.0351,1.0351,1.0351" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="246" Variation="1" Position="1.0615,99.7478,9.9997" Rotation="3.7185" Scale="1.031,1.031,1.031" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="247" Variation="4" Position="1.1845,101.142,9.9997" Rotation="4.612" Scale="0.9616,0.9616,0.9616" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="248" Position="1.243,102.839,9.9997" Rotation="4.814" Scale="0.9846,0.9846,0.9846" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="249" Variation="3" Position="1.2861,104.8056,9.9997" Rotation="5.505" Scale="1.0463,1.0463,1.0463" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="250" Variation="4" Position="1.3166,107.0075,9.9997" Rotation="1.162" Scale="1.031,1.031,1.031" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="251" Variation="5" Position="1.3723,108.2553,9.9997" Rotation="2.429" Scale="1.0397,1.0397,1.0397" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="252" Variation="4" Position="1.3674,109.7021,9.9997" Rotation="1.391" Scale="1.0432,1.0432,1.0432" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="253" Variation="3" Position="1.3884,110.8088,9.9997" Rotation="2.2783" Scale="0.9553,0.9553,0.9553" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="254" Variation="4" Position="1.4057,111.9968,9.9997" Rotation="2.3613" Scale="1.0021,1.0021,1.0021" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="255" Variation="2" Position="1.3762,113.1384,9.9997" Rotation="5.5261" Scale="0.9758,0.9758,0.9758" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="256" Variation="5" Position="1.3154,114.756,9.9997" Rotation="5.1323" Scale="0.9724,0.9724,0.9724" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="257" Variation="5" Position="1.2622,116.269,9.9997" Rotation="4.2004" Scale="0.9782,0.9782,0.9782" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="258" Variation="4" Position="1.2692,117.684,9.9997" Rotation="4.162" Scale="0.9714,0.9714,0.9714" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="259" Position="1.1518,119.402,9.9997" Rotation="1.9775" Scale="0.968,0.968,0.968" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="260" Variation="1" Position="0.9882,121.7944,9.9997" Rotation="1.779" Scale="0.9914,0.9914,0.9914" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="261" Variation="4" Position="0.86,123.6748,9.9997" Rotation="3.5236" Scale="0.9543,0.9543,0.9543" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="262" Variation="2" Position="0.7302,124.7827,9.9997" Rotation="0.3242" Scale="0.9858,0.9858,0.9858" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="263" Variation="5" Position="1.0231,126.1301,9.9997" Rotation="3.4167" Scale="0.9533,0.9533,0.9533" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="264" Variation="1" Position="1.6835,127.0446,9.9997" Rotation="0.2192" Scale="1.0036,1.0036,1.0036" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="265" Variation="5" Position="4.912,126.735,9.9997" Rotation="0.9978" Scale="0.9765,0.9765,0.9765" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="266" Variation="5" Position="6.4685,126.509,9.9997" Rotation="3.9785" Scale="0.9516,0.9516,0.9516" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="267" Variation="2" Position="8.6865,126.1301,9.9997" Rotation="1.9897" Scale="0.963,0.963,0.963" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="268" Variation="4" Position="9.957,125.9003,9.9997" Rotation="6.0312" Scale="0.9736,0.9736,0.9736" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="269" Variation="1" Position="11.939,125.7531,9.9997" Rotation="0.0588" Scale="1.0092,1.0092,1.0092" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="270" Variation="4" Position="13.5334,125.7531,9.9997" Rotation="5.302" Scale="1.009,1.009,1.009" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="271" Variation="2" Position="15.2387,125.7531,9.9997" Rotation="6.1198" Scale="1.022,1.022,1.022" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="272" Variation="5" Position="17.0537,125.7531,9.9997" Rotation="5.5253" Scale="0.9504,0.9504,0.9504" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="273" Position="18.4777,125.6003,9.9997" Rotation="0.2822" Scale="1.021,1.021,1.021" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="274" Variation="4" Position="20.511,125.6003,9.9997" Rotation="0.534" Scale="0.95,0.95,0.95" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="275" Variation="5" Position="22.5942,125.5297,9.9997" Rotation="3.0056" Scale="0.97,0.97,0.97" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="276" Variation="1" Position="6.6967,124.557,9.9997" Rotation="3.6186" Scale="0.9863,0.9863,0.9863" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="277" Variation="3" Position="4.9321,123.6748,9.9997" Rotation="4.5637" Scale="0.9633,0.9633,0.9633" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="278" Variation="3" Position="3.6271,122.6557,9.9997" Rotation="5.2983" Scale="1.0178,1.0178,1.0178" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="279" Variation="2" Position="2.2788,120.8657,9.9997" Rotation="0.1374" Scale="1.0004,1.0004,1.0004" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="280" Variation="4" Position="1.142,93.141,9.9997" Rotation="3.0244" Scale="1.0231,1.0231,1.0231" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="281" Variation="5" Position="1.0683,90.3732,9.9997" Rotation="4.9926" Scale="1.0383,1.0383,1.0383" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="282" Variation="1" Position="24.6103,126.2861,9.9997" Rotation="0.2148" Scale="1.0207,1.0207,1.0207" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="283" Variation="4" Position="26.008,126.4321,9.9997" Rotation="1.2568" Scale="1.0107,1.0107,1.0107" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="284" Variation="3" Position="27.5654,126.5732,9.9997" Rotation="0.4621" Scale="1.0336,1.0336,1.0336" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="285" Position="29.0744,126.793,9.9997" Rotation="0.5085" Scale="0.984,0.984,0.984" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="286" Variation="1" Position="30.6374,126.6413,9.9997" Rotation="1.7248" Scale="1.0156,1.0156,1.0156" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="287" Variation="4" Position="31.8178,126.5002,9.9997" Rotation="5.59" Scale="1.0063,1.0063,1.0063" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="288" Variation="1" Position="33.0012,126.4321,9.9997" Rotation="3.8901" Scale="1.0361,1.0361,1.0361" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="289" Position="34.397,126.354,9.9997" Rotation="0.092" Scale="1.0332,1.0332,1.0332" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="290" Variation="5" Position="35.8427,126.2133,9.9997" Rotation="4.4887" Scale="1.0151,1.0151,1.0151" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="291" Variation="1" Position="36.9714,126.2133,9.9997" Rotation="5.8764" Scale="1.0195,1.0195,1.0195" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="292" Position="39.1164,126.1455,9.9997" Rotation="1.956" Scale="0.9645,0.9645,0.9645" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="293" Variation="3" Position="40.3527,126.1455,9.9997" Rotation="6.1162" Scale="0.9504,0.9504,0.9504" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="294" Variation="4" Position="41.373,126.1455,9.9997" Rotation="1.7165" Scale="1.0031,1.0031,1.0031" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="295" Variation="2" Position="43.3073,126.1455,9.9997" Rotation="4.3488" Scale="0.9638,0.9638,0.9638" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="296" Position="45.0864,126.2133,9.9997" Rotation="2.4323" Scale="1.02,1.02,1.02" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="297" Variation="4" Position="47.019,126.2133,9.9997" Rotation="4.1313" Scale="0.967,0.967,0.967" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="298" Position="49.3122,126.0676,9.9997" Rotation="2.2687" Scale="0.9775,0.9775,0.9775" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="299" Variation="5" Position="50.6535,126.0676,9.9997" Rotation="4.175" Scale="0.9587,0.9587,0.9587" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="300" Variation="4" Position="51.9965,126.0856,9.9997" Rotation="0.3303" Scale="1.042,1.042,1.042" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="301" Variation="1" Position="54.0461,126.362,9.995" Rotation="2.8464" Scale="1.0312,1.0312,1.0312" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="302" Variation="2" Position="55.366,126.362,9.8051" Rotation="5.9362" Scale="0.9953,0.9953,0.9953" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="303" Variation="5" Position="56.7927,126.2963,7.9997" Rotation="0.824" Scale="0.9504,0.9504,0.9504" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="304" Variation="1" Position="58.7485,126.0158,7.9997" Rotation="2.0378" Scale="0.963,0.963,0.963" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="305" Position="60.164,125.8808,7.9997" Rotation="2.5776" Scale="1.0078,1.0078,1.0078" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="306" Variation="1" Position="61.273,125.8808,7.9997" Rotation="5.5253" Scale="1.0295,1.0295,1.0295" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="307" Variation="2" Position="63.0588,125.8105,7.9997" Rotation="1.4941" Scale="1.04,1.04,1.04" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="308" Variation="2" Position="64.4826,125.8808,7.9997" Rotation="1.0285" Scale="1.006,1.006,1.006" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="309" Variation="1" Position="65.5954,125.9506,7.9997" Rotation="1.8144" Scale="1.0336,1.0336,1.0336" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="310" Position="66.9685,126.0158,7.9997" Rotation="3.821" Scale="1.011,1.011,1.011" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="311" Variation="5" Position="68.3916,126.0158,7.9997" Rotation="5.2377" Scale="0.9853,0.9853,0.9853" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="312" Variation="1" Position="70.039,126.1611,7.9997" Rotation="1.9104" Scale="0.9611,0.9611,0.9611" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="313" Variation="3" Position="71.1447,126.1611,7.9997" Rotation="3.5422" Scale="1.0131,1.0131,1.0131" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="314" Position="72.569,126.1611,7.9997" Rotation="5.9433" Scale="0.9663,0.9663,0.9663" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="315" Variation="4" Position="74.565,126.0856,7.9997" Rotation="3.311" Scale="1.0026,1.0026,1.0026" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="316" Variation="2" Position="75.6752,126.0856,7.9997" Rotation="1.2592" Scale="0.983,0.983,0.983" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="317" Variation="4" Position="77.046,126.0856,7.9997" Rotation="3.334" Scale="1.0073,1.0073,1.0073" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="318" Variation="2" Position="78.2053,126.9982,7.9997" Rotation="5.059" Scale="0.9777,0.9777,0.9777" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="319" Variation="4" Position="80.5046,126.7988,7.9997" Rotation="0.4724" Scale="1.0441,1.0441,1.0441" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="320" Variation="1" Position="84.502,126.8666,7.9997" Rotation="1.9606" Scale="1.0263,1.0263,1.0263" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="321" Variation="3" Position="86.0097,126.8666,7.9997" Rotation="0.7531" Scale="1.0183,1.0183,1.0183" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="322" Variation="1" Position="87.256,126.8666,7.9997" Rotation="1.3652" Scale="1.0151,1.0151,1.0151" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="323" Variation="1" Position="89.1777,126.8666,7.9997" Rotation="2.785" Scale="1.0488,1.0488,1.0488" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="324" Variation="5" Position="77.0974,127.267,7.9997" Rotation="5.3674" Scale="1.0385,1.0385,1.0385" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="325" Variation="3" Position="75.695,127.2031,7.9997" Rotation="4.6821" Scale="0.951,0.951,0.951" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="326" Variation="3" Position="83.2612,126.6625,7.9997" Rotation="3.9025" Scale="1.0356,1.0356,1.0356" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="327" Variation="3" Position="114.234,127.3493,9.9997" Rotation="4.2473" Scale="1.0456,1.0456,1.0456" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="328" Variation="1" Position="115.7763,127.3493,9.9997" Rotation="2.2507" Scale="1.0393,1.0393,1.0393" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="329" Variation="1" Position="118.7546,127.4924,9.9997" Rotation="4.7487" Scale="1.0336,1.0336,1.0336" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="330" Variation="3" Position="125.7231,127.4924,11.9997" Rotation="4.084" Scale="1.0385,1.0385,1.0385" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="331" Variation="3" Position="126.5351,126.8623,11.9997" Rotation="0.5051" Scale="0.993,0.993,0.993" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="332" Variation="3" Position="127.0495,123.8537,11.9997" Rotation="3.9072" Scale="0.9724,0.9724,0.9724" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="333" Variation="4" Position="127.4526,112.138,9.9997" Rotation="2.3876" Scale="0.9526,0.9526,0.9526" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="334" Variation="1" Position="127.3547,118.792,9.9997" Rotation="3.828" Scale="1.0253,1.0253,1.0253" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="335" Variation="2" Position="127.101,116.3828,9.9997" Rotation="2.5136" Scale="1.01,1.01,1.01" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="336" Variation="4" Position="127.148,113.4128,9.9997" Rotation="5.8186" Scale="1.0417,1.0417,1.0417" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="337" Variation="5" Position="127.2475,108.4052,9.9997" Rotation="2.8457" Scale="1.0075,1.0075,1.0075" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="338" Variation="2" Position="127.3867,105.691,9.9997" Rotation="6.2714" Scale="0.9567,0.9567,0.9567" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="339" Variation="2" Position="127.3525,104.5537,9.9997" Rotation="1.5334" Scale="0.9604,0.9604,0.9604" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="340" Variation="5" Position="127.1572,101.7927,9.9997" Rotation="1.7165" Scale="1.036,1.036,1.036" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="341" Variation="4" Position="127.1257,98.2524,7.9968" Rotation="3.7634" Scale="1.0466,1.0466,1.0466" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="342" Variation="4" Position="126.7941,94.8718,7.9997" Rotation="1.582" Scale="1.0151,1.0151,1.0151" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="343" Variation="2" Position="126.352,92.1333,7.9997" Rotation="5.1196" Scale="0.9538,0.9538,0.9538" Type="Aiur_Trees_Regular_Grouped">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="364" Position="4.7277,25.3847,11.9997" Rotation="5.7424" Scale="0.9501,0.9501,0.9501" Type="CreepPods">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="365" Variation="1" Position="4.9755,6.286,9.9997" Rotation="1.8913" Scale="0.989,0.989,0.989" Type="CreepPods">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="366" Position="21.3317,4.9526,9.9997" Rotation="3.2646" Scale="1.04,1.04,1.04" Type="CreepPods">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="367" Variation="6" Position="7.5,122.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="368" Variation="4" Position="4.5,119.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="369" Position="11.5,123.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="370" Position="4.5,116.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="371" Variation="5" Position="4.5,113.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="372" Variation="8" Position="4.5,110.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="373" Variation="9" Position="14.5,123.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="374" Variation="10" Position="17.5,123.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="375" Variation="10" Position="20.5,123.5,9.9997" Scale="1,1,1" Type="Purifier_Trees_Tall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="376" Variation="1" Position="103.3134,25.4736,0" Scale="1.0927,1.0927,1.0927" Type="TheVoid_GroundScar">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="377" Variation="1" Position="103.3488,27.057,0" Rotation="4.5407" Scale="1,1,1" Type="TheVoid_LightRed">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="378" Variation="2" Position="103.3752,23.5793,0" Rotation="3.3574" Scale="1,1,1" Type="TheVoid_LightRed">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="381" Variation="5" Position="89.8452,14.4003,0" Rotation="6.116" Scale="0.9597,0.9597,0.9597" Type="TheVoid_RockPointy">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="382" Variation="1" Position="89.4125,7.9301,0" Rotation="3.1652" Scale="1.0603,1.0603,1.0603" Type="TheVoid_RockPointy">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="383" Position="96.9465,7.5505,0" Rotation="0.8642" Scale="1.0212,1.0212,1.0212" Type="TheVoid_RockPointy">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="384" Variation="3" Position="119.5588,31.774,0" Rotation="0.0971" Scale="1.0744,1.0744,1.0744" Type="TheVoid_RockPointy">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="385" Variation="1" Position="93.1225,10.5273,0" Scale="1.0976,1.0976,1.0976" Type="TheVoid_RockPointy2">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="379" Position="97.3071,15.6936,7.9997" Rotation="3.5788" Scale="1,1,1" Type="Void_Nebula_Storm">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="380" Position="111.5134,26.474,7.9997" Rotation="3.6513" Scale="1,1,1" Type="Void_Nebula_Storm">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectPoint Id="1" Position="13.5,13.5,0" Scale="1,1,1" Type="StartLoc" Name="HumanStart" Color="0,0,0,0"/>
+    <ObjectPoint Id="2" Position="115.5,115.5,0" Scale="1,1,1" Type="StartLoc" Name="AnyBotStart" Color="0,0,0,0"/>
+    <ObjectPoint Id="13" Position="106.2175,119.814,0" Scale="1,1,1" Type="Normal" Name="SupplyDepots" Color="0,0,0,0"/>
+    <ObjectPoint Id="15" Position="109.016,108.2373,0" Scale="1,1,1" Type="Normal" Name="Barracks" Color="0,0,0,0"/>
+    <ObjectPoint Id="362" Position="101.19,111.13,0" Scale="1,1,1" Type="Normal" Name="ArmyRally" Color="0,0,0,0"/>
+    <Group Type="ObjectUnit" Name="Vespene" Id="2">
+        <GroupObject Id="348"/>
+        <GroupObject Id="354"/>
+        <GroupObject Id="355"/>
+        <GroupObject Id="344"/>
+        <GroupObject Id="345"/>
+        <GroupObject Id="346"/>
+        <GroupObject Id="347"/>
+        <GroupObject Id="356"/>
+    </Group>
+    <Group Type="ObjectUnit" Name="Minerals" Id="1">
+        <GroupObject Id="3"/>
+        <GroupObject Id="4"/>
+        <GroupObject Id="5"/>
+        <GroupObject Id="6"/>
+        <GroupObject Id="7"/>
+        <GroupObject Id="8"/>
+        <GroupObject Id="9"/>
+        <GroupObject Id="10"/>
+        <GroupObject Id="11"/>
+        <GroupObject Id="12"/>
+        <GroupObject Id="349"/>
+        <GroupObject Id="350"/>
+        <GroupObject Id="351"/>
+        <GroupObject Id="352"/>
+        <GroupObject Id="353"/>
+        <GroupObject Id="357"/>
+        <GroupObject Id="358"/>
+        <GroupObject Id="359"/>
+        <GroupObject Id="360"/>
+        <GroupObject Id="361"/>
+    </Group>
+</PlacedObjects>

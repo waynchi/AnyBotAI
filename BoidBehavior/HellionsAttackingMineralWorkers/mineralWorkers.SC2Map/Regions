@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="BanelingStart"/>
+        <shape type="rect">
+            <quad value="22.7937,63.5698,49.7934,73.5698"/>
+        </shape>
+    </region>
+</Regions>

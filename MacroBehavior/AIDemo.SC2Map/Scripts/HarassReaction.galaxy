@@ -1,0 +1,23 @@
+trigger t;
+void HarassReactionRegisterTriggers() {
+	t = TriggerCreate("MissleTurretResponse");
+	TriggerAddEventUnitAttacked(t, null);
+}
+
+bool MissleTurretResponse(bool testConditions, bool runActions) {
+	unit triggeringUnit;
+	triggeringUnit = EventUnit();
+	
+	if(UtilsIsUnitMyStructure(triggeringUnit)) {
+		//Check to make sure the building is in the main base
+		if(RegionContainsPoint(RegionFromName("Base1-1"),UnitGetPosition(EventUnit())) || RegionContainsPoint(RegionFromName("Base1-2"),UnitGetPosition(EventUnit()))) {
+			UtilsAddPurchaseRequestToFront("MissleTurret", 100, 3, 100, "SCV", 0);
+			UtilsAddPurchaseRequestToFront("MissleTurret", 100, 2, 100, "SCV", 0);
+			UtilsAddPurchaseRequestToFront("MissleTurret", 100, 1, 100, "SCV", 0);
+		    UtilsAddPurchaseRequestToFront("MissleTurret", 100, 0, 100, "SCV", 0);
+		}
+	}
+	TriggerEnable (t, false);
+	return true;
+}
+

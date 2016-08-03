@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="Base1-1"/>
+        <shape type="diamond">
+            <center value="91.7297,128.4392"/>
+            <width value="13.4365"/>
+            <height value="22.9228"/>
+        </shape>
+    </region>
+    <region id="2">
+        <name value="Base1-2"/>
+        <shape type="diamond">
+            <center value="99.7502,134.4565"/>
+            <width value="7.2377"/>
+            <height value="10.104"/>
+        </shape>
+    </region>
+</Regions>

@@ -1,0 +1,156 @@
+trigger gSiegeMicroTriggerUnitRangePoint;
+//region gSiegeMicroTargetRegion;
+unitfilter gSiegeMicroUnitFilter = UnitFilter((1 << c_targetFilterGround),
+                                  0,
+                                  (1 << c_targetFilterMissile),
+                                  (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+
+void SiegeMicroRegisterTriggers()
+{
+    trigger t = TriggerCreate("SiegeMicroOnUnitAttackOrder");
+    TriggerAddEventUnitOrder(t, UnitRefFromVariable("SiegeTank"), AbilityCommand("attack", 0));
+    TriggerAddEventUnitOrder(t, UnitRefFromVariable("SiegeTank"), AbilityCommand("move", 0));
+    t = TriggerCreate("SiegeMicroOnUnitAttacked");
+    TriggerAddEventUnitAttacked2(t, null, null);
+}
+
+void SiegeMicroSetSiegeEvent(point p)
+{
+    // Siege when in range
+    TriggerDestroy(gSiegeMicroTriggerUnitRangePoint);
+    gSiegeMicroTriggerUnitRangePoint = TriggerCreate("SiegeMicroOnUnitRangePoint");
+    TriggerAddEventUnitRangePoint(gSiegeMicroTriggerUnitRangePoint,
+                                  UnitRefFromVariable("SiegeTank"),
+                                  p,
+                                  13,
+                                  true);
+}
+
+void SiegeMicroAttackPoint(point p)
+{
+    // Order move towards point
+    UnitGroupIssueOrder(UnitGroup("SiegeTank", 2, RegionEntireMap(), gSiegeMicroUnitFilter, 0),
+                        OrderTargetingPoint(AbilityCommand("move", 0), p),
+                        c_orderQueueAddToEnd);
+
+    SiegeMicroSetSiegeEvent(p);
+}
+
+bool SiegeMicroOnUnitAttackOrder(bool checkConds, bool runActions)
+{
+    unit eventUnit = EventUnit();
+    order unitOrder = EventUnitOrder();
+    point attackPoint = OrderGetTargetPoint(unitOrder);
+
+    // exit function if attack is not for point
+    if (OrderGetTargetType(unitOrder) != 1)
+    {
+        return true;
+    }
+
+    // TODO(sot): Check if this if is needed
+    if (UnitGetType(eventUnit) == "SiegeTank")
+    {
+        SiegeMicroSetSiegeEvent(attackPoint);
+
+        // FixedToString takes a fixed value and an int precision. -1 means any precision
+        UtilsDebugLog("Sieging when within range of point: (" + FixedToString(PointGetX(attackPoint), -1) + ", " + FixedToString(PointGetY(attackPoint), -1) + ")");
+        UtilsDebugLog("Target type: " + IntToString(OrderGetTargetType(unitOrder)));
+    }
+
+    return true;
+}
+
+bool SiegeMicroOnUnitRangePoint(bool checkConds, bool runActions)
+{
+    unit enteringUnit = EventUnit();
+
+    if (UnitGetType(enteringUnit) == "SiegeTank")
+    {
+        UtilsDebugLog("In range!");
+        UnitIssueOrder(enteringUnit, Order(AbilityCommand("SiegeMode", 0)), c_orderQueueAddToFront);
+        // Set target region
+        //gSiegeMicroTargetRegion = RegionCircle(UnitGetPosition(enteringUnit), 15);
+    }
+    else
+    {
+        // do nothing
+    }
+
+    return true;
+}
+
+bool SiegeMicroOnUnitRangeEnter(bool checkConds, bool runActions)
+{
+    unit eventUnit = EventUnit();
+    unit enteringUnit = EventUnitRangeUnit();
+
+    if (UnitGetOwner(eventUnit) != 1)
+    {
+        return true;
+    }
+
+    if (UnitGetType(enteringUnit) == "SiegeTank")
+    {
+        UtilsDebugLog("In range (Unit approached me)!");
+        UnitIssueOrder(enteringUnit, Order(AbilityCommand("SiegeMode", 0)), c_orderQueueAddToFront);
+    }
+    return true;
+}
+
+bool SiegeMicroOnUnitRangeExit(bool checkConds, bool runActions)
+{
+    //unit eventUnit = EventUnit();
+    unit exitingUnit = EventUnitRangeUnit();
+    int enemyCount;
+
+    if (UnitGetType(exitingUnit) == "SiegeTankSieged")
+    {
+        // TODO(sot): determine enemy player number another way
+        enemyCount = UnitCount(null, 1, RegionCircle(UnitGetPosition(exitingUnit), 15), gSiegeMicroUnitFilter, 0);
+        UtilsDebugLog(IntToString(enemyCount) + " enemies still in range");
+        // Unsiege if no enemies left
+        if (enemyCount == 0)
+        {
+            // Delete Siege Trigger
+            TriggerDestroy(gSiegeMicroTriggerUnitRangePoint);
+            // Unsiege this
+            UnitIssueOrder(exitingUnit,
+                                Order(AbilityCommand("Unsiege", 0)), c_orderQueueAddToFront);
+        }
+    }
+
+    return true;
+}
+
+bool SiegeMicroOnUnitAttacked(bool checkConds, bool runActions)
+{
+    unit attackingUnit = EventUnit();
+    unit triggeringUnit = EventUnitTarget();
+    int i = 0;
+    int myUnitIndex = 0;
+    int enemyCount;
+
+    // if SiegeTankSieged
+    if (UnitGetType(attackingUnit) == "SiegeTankSieged")
+    {
+        // Check if this is our unit
+        if (!UtilsIsUnitMyUnit(attackingUnit))
+        {
+            return true;
+        }
+
+        // TODO(sot): determine enemy player number another way
+        enemyCount = UnitCount(null, 1, RegionCircle(UnitGetPosition(attackingUnit), 15), gSiegeMicroUnitFilter, 0);
+        UtilsDebugLog(IntToString(enemyCount) + " enemies still in range");
+        // Unsiege if no enemies left
+        if (enemyCount == 0)
+        {
+            // Delete Siege Trigger
+            TriggerDestroy(gSiegeMicroTriggerUnitRangePoint);
+            // Unsiege this tanks
+            UnitIssueOrder(attackingUnit, Order(AbilityCommand("Unsiege", 0)), c_orderQueueAddToFront);
+        }
+    }
+    return true;
+}

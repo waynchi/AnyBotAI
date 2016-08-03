@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTerrain id="BelShir">
+        <FogColor value="255,52,99,75"/>
+        <FogDensity value="0.035000"/>
+        <FogFalloff value="0.220000"/>
+        <FogStartingHeight value="0.500000"/>
+    </CTerrain>
+</Catalog>

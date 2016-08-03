@@ -1,0 +1,6 @@
+﻿DocInfo/DescLong=Tests two armies fighting in a choke.
+DocInfo/DescShort=AnyBot Testers
+DocInfo/Name=AnyBot Micro Test Map
+MapInfo/Player00/Name=Neutral
+MapInfo/Player01/Name=Player 1
+MapInfo/Player02/Name=Hostile

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Preload>
+<Actor id="SYSTEM_ActorConfig"/>
+<Terrain id="BelShirEx1"/>
+<Unit id="CommandCenter"/>
+<Unit id="MineralField750" Variations="0,1,2,6,7,8"/>
+</Preload>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TriggerData>
+    <Root>
+        <Item Type="Trigger" Id="0374FB35"/>
+        <Item Type="CustomScript" Id="37B992D3"/>
+        <Item Type="Trigger" Id="00000001"/>
+        <Item Type="CustomScript" Id="B7E43B69"/>
+        <Item Type="Trigger" Id="580A1464"/>
+        <Item Type="CustomScript" Id="0A4D3AD4"/>
+        <Item Type="Trigger" Id="00000001"/>
+        <Item Type="CustomScript" Id="B7E43B69"/>
+    </Root>
+    <Element Type="Trigger" Id="0374FB35">
+        <Identifier>mapInit</Identifier>
+        <Event Type="FunctionCall" Id="6AF67B42"/>
+        <Action Type="FunctionCall" Id="91F79862"/>
+        <Action Type="FunctionCall" Id="626B781D"/>
+        <Action Type="FunctionCall" Id="97DB203A"/>
+        <Action Type="FunctionCall" Id="650357DE"/>
+    </Element>
+    <Element Type="FunctionCall" Id="6AF67B42">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000120"/>
+    </Element>
+    <Element Type="FunctionCall" Id="91F79862">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
+        <ScriptCode>
+            mapInitiated();
+        </ScriptCode>
+    </Element>
+    <Element Type="FunctionCall" Id="626B781D">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000150"/>
+    </Element>
+    <Element Type="FunctionCall" Id="97DB203A">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000143"/>
+    </Element>
+    <Element Type="FunctionCall" Id="650357DE">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000148"/>
+    </Element>
+    <Element Type="CustomScript" Id="37B992D3">
+        <Identifier>Main</Identifier>
+        <ScriptCode>
+            include &quot;scripts/main&quot;
+        </ScriptCode>
+    </Element>
+</TriggerData>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Preload>
+<Actor id="SYSTEM_ActorConfig"/>
+<Terrain id="AgriaEx1"/>
+<Unit id="SiegeTank"/>
+<Unit id="Marine"/>
+<Unit id="Zergling"/>
+<Unit id="Roach"/>
+</Preload>

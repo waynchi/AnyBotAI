@@ -1,0 +1,10 @@
+﻿DocInfo/DescLong=Testing spread behavior of AnyBot's army when being rushed by a Baneling. This should minimize the units lost by the explosion.
+DocInfo/DescShort=AnyBot Testers
+DocInfo/Name=AnyBot Spread Behvior Test
+LoadingScreen/TextBody=AnyBot should spread its units to minimize casualties from the Baneling rush. It should attempt to send a single unit to take out the Baneling before it reaches the spread out mass.
+LoadingScreen/Tip=AnyBot will win if it has enough marines to kill the zerg boss.
+LoadingScreen/Title=AnyBot Spread Formation Test
+MapInfo/Player00/Name=Neutral
+MapInfo/Player01/Name=Player 1
+MapInfo/Player02/Name=Player 2
+MapInfo/Player03/Name=Hostile

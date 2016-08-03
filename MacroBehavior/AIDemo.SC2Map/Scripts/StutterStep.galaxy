@@ -1,0 +1,55 @@
+void StutterStepGroupStutter(unit myUnit, unit enemyGroup, unitgroup myUnitGroup) {
+    point enemyPosition = UnitGetPosition(enemyGroup);
+   // point myPosition = UnitGroupCenterOfGroup(myUnitGroup);
+    point myPosition=UnitGetPosition(myUnit);
+    
+    fixed myPositionX = PointGetX(myPosition);
+    fixed myPositionY = PointGetY(myPosition);
+    fixed enemyPositionX = PointGetX(enemyPosition);
+    fixed enemyPositionY = PointGetY(enemyPosition);
+    point targetPosition;
+    point enemyBase = PointFromName("HumanStart");
+    fixed enemyBasePositionX = PointGetX(enemyBase);
+    fixed enemyBasePositionY = PointGetY(enemyBase);
+
+    fixed newPositionX;
+    fixed newPositionY;
+    fixed slope;
+    fixed distanceFromEnemy;
+    fixed distanceFromEnemyBase;
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("In Stutter."));
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(UnitGetType(enemyGroup)));
+    distanceFromEnemy = SquareRoot(Pow(myPositionX - enemyPositionX, 2) + Pow(myPositionY - enemyPositionY, 2));
+    distanceFromEnemyBase = SquareRoot(Pow(myPositionX - enemyBasePositionX, 2) + Pow(myPositionY - enemyBasePositionY, 2));
+    slope = (enemyPositionY - myPositionY) / (enemyPositionX - myPositionX);
+
+    if (myPositionX < enemyPositionX) {
+      newPositionX = (myPositionX - 2) / SquareRoot( 1 + (slope * slope));
+    } else {
+      newPositionX = (myPositionX + 2) / SquareRoot( 1 + (slope * slope));
+    }
+    newPositionY = ( (newPositionX - myPositionX)) + myPositionY;
+    targetPosition = Point(newPositionX, newPositionY);
+    if(distanceFromEnemy >= 2) {
+      //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("In Stutter."));
+      //UnitGroupIssueOrder(myUnitGroup, OrderTargetingUnit(AbilityCommand("attack", 0), enemyGroup), c_orderQueueAddToFront);
+      //UnitGroupIssueOrder(myUnitGroup, OrderTargetingPoint(AbilityCommand("move", 0), targetPosition), c_orderQueueAddToFront);
+      UnitIssueOrder(myUnit, OrderTargetingUnit(AbilityCommand("attack", 0), enemyGroup), c_orderQueueAddToFront);
+      UnitIssueOrder(myUnit, OrderTargetingPoint(AbilityCommand("move", 0), targetPosition), c_orderQueueAddToFront);
+      UnitGroupIssueOrder(myUnitGroup, OrderTargetingUnit(AbilityCommand("move", 0), myUnit), c_orderQueueAddToFront);
+    } else {
+        //UnitGroupIssueOrder(myUnitGroup, OrderTargetingUnit(AbilityCommand("attack", 0), enemyGroup), c_orderQueueAddToFront);
+        UnitIssueOrder(myUnit, OrderTargetingUnit(AbilityCommand("attack", 0), enemyGroup), c_orderQueueAddToFront);
+    }
+}
+// void StutterStepGroupStutter(string mygroupName, unit enemy){
+//   int i;
+//   UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("In Group Stutter."));
+//   for(i=0; i<1000; i+=1){
+//     if(gMyUnitList[i].groupName == mygroupName){//gMyUnitList[i]==null||
+//       StutterStepUnitStutter(gMyUnitList[i].friendly, enemy);
+//     }
+//   }
+// }
+
+

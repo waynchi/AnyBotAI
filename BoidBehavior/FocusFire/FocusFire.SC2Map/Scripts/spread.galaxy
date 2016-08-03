@@ -1,0 +1,293 @@
+include "TriggerLibs/NativeLib"
+
+struct EnemyUnit {
+  unit enemy;
+  fixed health;
+  fixed assignedDamage;
+};
+
+struct FriendlyUnit {
+  unit friendly;
+  fixed health;
+  bool assigned;
+};
+
+struct CurrentFriendlyUnit {
+  unit friendly;
+  fixed health;
+  bool assigned;
+  int index;
+};
+
+int gTeamNumber = 1;
+int gMyUnitCount = 0;
+FriendlyUnit[1000] gMyUnitList;
+int gOtherUnitCount = 0;
+unit[1000] gOtherUnitList;
+string[24] gMyPossibleUnits;
+EnemyUnit[1000] gEnemiesInRange;
+int gEnemiesInRangeCount = 0;
+
+void RegisterTriggers()
+{
+     trigger t = TriggerCreate("OnUnitDeath");
+     TriggerAddEventUnitDied(t, null); // null here means any unit.
+     t = TriggerCreate("OnUnitCreated");
+     TriggerAddEventUnitCreated(t, null, null, null); // trigger, creator, ability, behavior
+     t = TriggerCreate("OnUnitAttacked");
+     TriggerAddEventUnitAttacked2(t, null, null);
+}
+
+void mapInitiated() {
+  int i = 0;
+
+  RegisterTriggers();
+
+  // Initialize globals
+  gMyPossibleUnits[0] = "Banshee";
+  gMyPossibleUnits[1] = "Battlecruiser";
+  gMyPossibleUnits[2] = "Cyclone";
+  gMyPossibleUnits[3] = "Ghost";
+  gMyPossibleUnits[4] = "Hellbat (Battle Mode)";
+  gMyPossibleUnits[5] = "Hellion";
+  gMyPossibleUnits[6] = "HERC";
+  gMyPossibleUnits[7] = "Liberator (AA)";
+  gMyPossibleUnits[8] = "Liberator (AG)";
+  gMyPossibleUnits[9] = "Marauder";
+  gMyPossibleUnits[10] = "Marine";
+  gMyPossibleUnits[11] = "Medivac";
+  gMyPossibleUnits[12] = "MULE";
+  gMyPossibleUnits[13] = "Point Defense Drone";
+  gMyPossibleUnits[14] = "Raven";
+  gMyPossibleUnits[15] = "Reaper";
+  gMyPossibleUnits[16] = "SCV";
+  gMyPossibleUnits[17] = "Seeker Missle";
+  gMyPossibleUnits[18] = "Siege Tank (Siege Mode)";
+  gMyPossibleUnits[19] = "Siege Tank (Tank Mode)";
+  gMyPossibleUnits[20] = "Thor - Explosive Paylode Mode";
+  gMyPossibleUnits[21] = "Thor - High Impact Mode";
+  gMyPossibleUnits[22] = "Viking (Assault Mode)";
+  gMyPossibleUnits[23] = "Viking (Fighter Mode)";
+
+  // Set up scenario
+  i = 0;
+  for (; i < 1; i+=1) {
+    UnitCreate(16, "Marine", c_unitCreateIgnorePlacement, 1, PointFromName("CameraStart"), 270.0);
+  }
+  i = 0;
+  for (; i < 1; i+=1) {
+    UnitCreate(10, "Zergling", c_unitCreateIgnorePlacement, 2, PointFromName("EnemyStart"), 270.0);
+  }
+}
+
+fixed NormalizeX(fixed x, fixed y) {
+  fixed length = SquareRoot(((x) * (x)) + ((y) + (y)));
+  return x / length;
+}
+
+fixed NormalizeY(fixed x, fixed y) {
+  fixed length = SquareRoot(((x) * (x)) + ((y) + (y)));
+  return y / length;
+}
+
+bool OnUnitDeath(bool checkConds, bool runActions)
+{
+     unit dyingUnit = EventUnit(); // the unit that just died.
+     string unitType = UnitGetType( dyingUnit );
+     text unitName = UnitTypeGetName( unitType );
+
+     //UIDisplayMessage( PlayerGroupAll(), c_messageAreaChat, unitName );
+     return true;
+}
+
+bool OnUnitCreated(bool checkConds, bool runActions)
+{
+  unit createdUnit = EventUnitCreatedUnit();
+  string unitType = UnitGetType(createdUnit);
+  text unitName = UnitGetName(createdUnit);
+  bool isMine = false;
+  int i = 0;
+  trigger t;
+  // If the created unit is on our team
+  i = 0;
+  for (; i < 24; i += 1) {
+    if (unitType == gMyPossibleUnits[i]) {
+      isMine = true;
+    }
+  }
+
+  if (isMine)
+  {
+    gMyUnitList[gMyUnitCount].friendly = createdUnit;
+    gMyUnitList[gMyUnitCount].health = UnitGetPropertyFixed(createdUnit, c_unitPropLife, c_unitPropCurrent);
+    gMyUnitList[gMyUnitCount].assigned = false;
+    gMyUnitCount += 1;
+    t = TriggerCreate("OnUnitRange");
+    TriggerAddEventUnitRange(t, null, createdUnit, 10.0, true);
+
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("My Unit Created"));
+  } else {
+    gOtherUnitList[gOtherUnitCount] = createdUnit;
+    gOtherUnitCount += 1;
+
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Enemy Unit Created"));
+  }
+
+  return true;
+}
+
+bool OnUnitRange(bool checkConds, bool runActions)
+{
+    unit originatingUnit = EventUnitRangeUnit();
+    unit enteringUnit = EventUnit();
+    int i = 0;
+    int k = 0;
+    int m = 0;
+    bool foundEnemy = false;
+    int myIndex = 0;
+    int enemyIndex = 0;
+    text message;
+    fixed enemyHealth;
+    CurrentFriendlyUnit[1000] currentUnitGroup;
+    int currentUnitGroupCount = 1;
+    bool inCurrentGroup;
+    bool openUnits = false;
+    fixed originatingX;
+    fixed originatingY;
+    fixed otherX;
+    fixed otherY;
+    fixed rangeSquared = 15*15;
+
+    // First check that the entering unit is not ours
+    if (UnitGetOwner(enteringUnit) == 1) {
+      return true;
+    }
+
+    for (; i < gEnemiesInRangeCount; i+=1) {
+      if (enteringUnit == gEnemiesInRange[i].enemy) {
+        gEnemiesInRange[i].health = UnitGetPropertyFixed(enteringUnit, c_unitPropLife, c_unitPropCurrent);
+        foundEnemy = true;
+        enemyIndex = i;
+        enemyHealth = gEnemiesInRange[i].health;
+
+        // Stop here if the unit is already dead
+        if (gEnemiesInRange[i].assignedDamage >= gEnemiesInRange[i].health) {
+          return true;
+        }
+      }
+    }
+
+    if (foundEnemy == false) {
+      gEnemiesInRange[gEnemiesInRangeCount].enemy = enteringUnit;
+      gEnemiesInRange[gEnemiesInRangeCount].health = UnitGetPropertyFixed(enteringUnit, c_unitPropLife, c_unitPropCurrent);
+      gEnemiesInRange[gEnemiesInRangeCount].assignedDamage = 0;
+      enemyIndex = gEnemiesInRangeCount;
+      gEnemiesInRangeCount += 1;
+    }
+
+    // Now our enemy is accounted for and we know that it needs to take damage. Next we should form our group of units on our side.
+    currentUnitGroup[0].friendly = originatingUnit;
+    i = 0;
+    for (; i < gMyUnitCount; i+=1) {
+      if (gMyUnitList[i].friendly == originatingUnit) {
+        currentUnitGroup[0].assigned = gMyUnitList[i].assigned;
+        currentUnitGroup[0].health = gMyUnitList[i].health;
+        currentUnitGroup[0].index = i;
+        if (gMyUnitList[i].assigned == false) {
+          openUnits = true;
+        }
+      }
+    }
+
+
+    // One of our units has come in range of a baneling. We should handle behavior here
+    i = 0;
+    for (; i < currentUnitGroupCount; i += 1) {
+      k = 0;
+      for (; k < gMyUnitCount; k += 1) {
+        inCurrentGroup = false;
+        m = 0;
+        for (; m < currentUnitGroupCount; m += 1) {
+          if (gMyUnitList[k].friendly == currentUnitGroup[m].friendly) {
+            inCurrentGroup = true;
+          }
+        }
+
+        if (inCurrentGroup == false) {
+          // This unit is not in our current unit group
+          originatingX = (PointGetX(UnitGetPosition(currentUnitGroup[i].friendly)));
+          originatingY = (PointGetY(UnitGetPosition(currentUnitGroup[i].friendly)));
+          otherX = (PointGetX(UnitGetPosition(gMyUnitList[k].friendly)));
+          otherY = (PointGetY(UnitGetPosition(gMyUnitList[k].friendly)));
+          if ((((otherX - originatingX) * (otherX - originatingX)) + (otherY - originatingY) * (otherY - originatingY)) < rangeSquared) {
+            // Other unit is within the grouping range of one of our group's units. This allows our group to cascade out from the original unit
+            currentUnitGroup[currentUnitGroupCount].friendly = gMyUnitList[k].friendly;
+            currentUnitGroup[currentUnitGroupCount].assigned = gMyUnitList[k].assigned;
+            currentUnitGroup[currentUnitGroupCount].health = gMyUnitList[k].health;
+            if (gMyUnitList[k].assigned == false) {
+              openUnits = true;
+            }
+            currentUnitGroupCount += 1;
+          }
+        }
+      }
+    }
+    if (openUnits == false) {
+      return true;
+    }
+
+    // At this point, we know that the enemy needs to take damage and there is a group of units nearby. We should cycle through this group and assign as many as necessary.
+    i = 0;
+    for (; i < currentUnitGroupCount; i+=1) {
+      if (currentUnitGroup[i].assigned == false) {
+        if (gEnemiesInRange[enemyIndex].assignedDamage < gEnemiesInRange[enemyIndex].health) {
+          // At this point, we know that the enemy needs to take damage and our unit in range is unassigned, lets assign it here
+          UnitIssueOrder(currentUnitGroup[i].friendly, OrderTargetingUnit(AbilityCommand("attack", 0), enteringUnit), c_orderQueueReplace);
+          currentUnitGroup[i].assigned = true;
+          gMyUnitList[currentUnitGroup[i].index].assigned = true;
+          gEnemiesInRange[enemyIndex].assignedDamage += (UnitWeaponDamage(originatingUnit, 1, c_unitAttributeNone, false) * UnitWeaponSpeedMultiplier(originatingUnit, 1) * 0.5) - (UnitGetPropertyFixed(enteringUnit, c_unitPropLifeArmor, c_unitPropCurrent) + UnitGetPropertyFixed(enteringUnit, c_unitPropShieldArmor, c_unitPropCurrent) + UnitGetPropertyFixed(enteringUnit, c_unitPropEnergyArmor, c_unitPropCurrent));
+
+          message = UnitGetName(originatingUnit);
+          message += StringToText(" with total damage ");
+          message += StringToText(IntToString(FixedToInt((UnitWeaponDamage(originatingUnit, 1, c_unitAttributeNone, false) * UnitWeaponSpeedMultiplier(originatingUnit, 1) * 0.5) - (UnitGetPropertyFixed(enteringUnit, c_unitPropLifeArmor, c_unitPropCurrent) + UnitGetPropertyFixed(enteringUnit, c_unitPropShieldArmor, c_unitPropCurrent) + UnitGetPropertyFixed(enteringUnit, c_unitPropEnergyArmor, c_unitPropCurrent)))));
+          message += StringToText(" attacking ");
+          message += UnitGetName(enteringUnit);
+          message += StringToText(" with remaining hp ");
+          message += StringToText(IntToString(FixedToInt(gEnemiesInRange[enemyIndex].health - gEnemiesInRange[enemyIndex].assignedDamage)));
+          UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, message);
+        }
+      }
+    }
+
+  return true;
+}
+
+bool OnUnitAttacked(bool checkConds, bool runActions) {
+  unit attackingUnit = EventUnitTarget();
+  unit triggeringUnit = EventUnit();
+  int i = 0;
+
+  // Check if this is our unit
+  if (UnitGetOwner(attackingUnit) != 1) {
+    return true;
+  }
+
+  // First set yourself as unassigned
+  for (; i < gMyUnitCount; i += 1) {
+    if (gMyUnitList[i].friendly == attackingUnit) {
+      gMyUnitList[i].assigned = false;
+    }
+  }
+
+  // Next update the health of your enemy
+  i = 0;
+  for (; i < gEnemiesInRangeCount; i += 1) {
+    if (gEnemiesInRange[i].enemy == triggeringUnit) {
+      gEnemiesInRange[i].health = UnitGetPropertyFixed(triggeringUnit, c_unitPropLife, c_unitPropCurrent);
+      // If the unit is dead, handle the list here
+    }
+  }
+
+  // Now assign a new unit to attack, if there are any
+  return true;
+}

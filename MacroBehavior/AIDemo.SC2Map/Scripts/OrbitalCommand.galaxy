@@ -1,0 +1,35 @@
+void OrbitalCommandRegisterTriggers()
+{
+    // Do nothing for now
+}
+
+void OrbitalCommandRegisterTriggersOnCreate(unit orbitalCommandUnit)
+{
+    trigger t = TriggerCreate("OrbitalCommandOnEnergyChanged");
+    TriggerAddEventUnitProperty(t, UnitRefFromUnit(orbitalCommandUnit), c_unitPropEnergy);
+}
+
+bool OrbitalCommandOnFinished(bool checkConds, bool runActions)
+{
+    unit orbital = EventUnit();
+    string typeOfCompletedObject = EventUnitProgressObjectType();
+    OrbitalCommandRegisterTriggersOnCreate(orbital);
+    return true;
+}
+
+bool OrbitalCommandOnEnergyChanged(bool checkConds, bool runActions)
+{
+    unit orbital = EventUnit();
+    unit mineralPatch;
+    int energy = UnitGetPropertyInt(orbital, c_unitPropEnergy, c_unitPropCurrent);
+    // only drop MULEs for now, eventually check if AI wants to keep energy
+    // for a scan
+    if (energy >= libNtve_gf_CostOfAbility("CalldownMULE", "Energy"))
+    {
+        mineralPatch = UnitGroupClosestToPoint(UnitGroupFromId(1), UnitGetPosition(orbital));
+        UnitIssueOrder(orbital,
+                        OrderTargetingUnit(AbilityCommand("CalldownMULE", 0), mineralPatch),
+                        c_orderQueueAddToFront);
+    }
+    return true;
+}

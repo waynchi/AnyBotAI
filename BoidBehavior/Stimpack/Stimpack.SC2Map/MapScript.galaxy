@@ -1,0 +1,92 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   Just Another StarCraft II Map
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_MeleeInitialization;
+trigger gt_speedupresearch;
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script: stimpack
+//--------------------------------------------------------------------------------------------------
+include "scripts/stimpackmicro"
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script Initialization
+//--------------------------------------------------------------------------------------------------
+void InitCustomScript () {
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Melee Initialization
+//--------------------------------------------------------------------------------------------------
+bool gt_MeleeInitialization_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitIssueOrder(UnitFromId(45), Order(AbilityCommand("BarracksTechLabResearch", 0)), c_orderQueueReplace);
+    UnitGroupIssueOrder(UnitGroupFromId(1), OrderTargetingPoint(AbilityCommand("attack", 2), PointFromId(5)), c_orderQueueReplace);
+    StimpackRegisterTriggers();
+    PlayerModifyPropertyInt(1, c_playerPropMinerals, c_playerPropOperSetTo, 1000);
+    PlayerModifyPropertyInt(1, c_playerPropVespene, c_playerPropOperSetTo, 1000);
+    GameSetSpeedValue(c_gameSpeedFaster);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MeleeInitialization_Init () {
+    gt_MeleeInitialization = TriggerCreate("gt_MeleeInitialization_Func");
+    TriggerAddEventMapInit(gt_MeleeInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: speedupresearch
+//--------------------------------------------------------------------------------------------------
+bool gt_speedupresearch_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitSetProgressComplete(EventUnit(), 1, 100);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_speedupresearch_Init () {
+    gt_speedupresearch = TriggerCreate("gt_speedupresearch_Func");
+    TriggerAddEventUnitResearchProgress(gt_speedupresearch, UnitRefFromUnit(UnitFromId(44)), c_unitProgressStageStart);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_MeleeInitialization_Init();
+    gt_speedupresearch_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitCustomScript();
+    InitTriggers();
+}

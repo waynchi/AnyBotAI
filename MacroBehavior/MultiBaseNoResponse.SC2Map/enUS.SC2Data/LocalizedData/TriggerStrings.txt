@@ -1,0 +1,2 @@
+﻿CustomScript/Name/37B992D3=Main
+Trigger/Name/0374FB35=mapInit

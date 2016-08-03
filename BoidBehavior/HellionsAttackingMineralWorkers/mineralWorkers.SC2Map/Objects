@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlacedObjects Version="27">
+    <ObjectUnit Id="11" Position="67.5,62.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="CommandCenter" Player="1"/>
+    <ObjectUnit Id="1" Variation="6" Position="60,72.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="2" Variation="7" Position="61,73.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="3" Variation="8" Position="63,73.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="4" Variation="2" Position="62,74.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="5" Variation="1" Position="65,73.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="6" Position="64,74.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="7" Variation="6" Position="66,72.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="8" Variation="6" Position="68,72.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="9" Position="70,72.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectUnit Id="10" Position="67,73.5,0" Scale="1,1,1" UnitType="MineralField750" Player="1"/>
+    <ObjectPoint Id="39" Position="69.0053,69.7636,0" Scale="1,1,1" Type="Normal" Name="RushPoint" Color="0,0,0,0"/>
+    <ObjectPoint Id="40" Position="63.5,69.5,0" Scale="1,1,1" Type="StartLoc" Name="CameraStart" Color="0,0,0,0"/>
+    <ObjectPoint Id="41" Position="44.5,68.5,0" Scale="1,1,1" Type="StartLoc" Name="EnemyStart" Color="0,0,0,0"/>
+</PlacedObjects>

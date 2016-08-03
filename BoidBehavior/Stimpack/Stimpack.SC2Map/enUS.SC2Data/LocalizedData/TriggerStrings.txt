@@ -1,0 +1,3 @@
+﻿CustomScript/Name/02B816A5=stimpack
+Trigger/Name/661B5DF6=speedupresearch
+Trigger/Name/C117B1A6=Melee Initialization

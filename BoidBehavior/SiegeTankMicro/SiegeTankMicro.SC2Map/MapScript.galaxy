@@ -1,0 +1,173 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   AnyBot Micro Test Map
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_DefendPoint;
+trigger gt_TerranWin;
+trigger gt_TerranLose;
+trigger gt_Init;
+trigger gt_ZergAttack;
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script: Untitled Custom Script 001
+//--------------------------------------------------------------------------------------------------
+include "scripts/siege_micro"
+
+//--------------------------------------------------------------------------------------------------
+// Custom Script Initialization
+//--------------------------------------------------------------------------------------------------
+void InitCustomScript () {
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 001
+//--------------------------------------------------------------------------------------------------
+bool gt_DefendPoint_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_DefendPoint;
+
+    // Variable Initialization
+    lv_DefendPoint = PointFromId(3);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    defendPoint(lv_DefendPoint);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_DefendPoint_Init () {
+    gt_DefendPoint = TriggerCreate("gt_DefendPoint_Func");
+    TriggerAddEventMapInit(gt_DefendPoint);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 001
+//--------------------------------------------------------------------------------------------------
+bool gt_TerranWin_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitCount(null, 2, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    GameOver(1, c_gameOverVictory, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TerranWin_Init () {
+    gt_TerranWin = TriggerCreate("gt_TerranWin_Func");
+    TriggerAddEventUnitDied(gt_TerranWin, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 002
+//--------------------------------------------------------------------------------------------------
+bool gt_TerranLose_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitCount(null, 1, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    GameOver(1, c_gameOverDefeat, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TerranLose_Init () {
+    gt_TerranLose = TriggerCreate("gt_TerranLose_Func");
+    TriggerAddEventUnitDied(gt_TerranLose, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Init
+//--------------------------------------------------------------------------------------------------
+bool gt_Init_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    CameraLockInput(1, true);
+    CameraSetValue(1, c_cameraValueDistance, 50.0, 2.0, -1, 10.0);
+    CameraPan(1, PointFromId(3), 2.0, -1, 10.0, false);
+    VisEnable(c_visTypeFog, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Init_Init () {
+    gt_Init = TriggerCreate("gt_Init_Func");
+    TriggerAddEventMapInit(gt_Init);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 001
+//--------------------------------------------------------------------------------------------------
+bool gt_ZergAttack_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupIssueOrder(UnitGroupIdle(2, false), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromId(40)), c_orderQueueReplace);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ZergAttack_Init () {
+    gt_ZergAttack = TriggerCreate("gt_ZergAttack_Func");
+    TriggerAddEventMapInit(gt_ZergAttack);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_DefendPoint_Init();
+    gt_TerranWin_Init();
+    gt_TerranLose_Init();
+    gt_Init_Init();
+    gt_ZergAttack_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitCustomScript();
+    InitTriggers();
+}

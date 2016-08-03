@@ -1,0 +1,20 @@
+include "TriggerLibs/NativeLib"
+
+void StimpackRegisterTriggers() {
+	trigger t = TriggerCreate("StimpackActivate");
+	TriggerAddEventUnitAcquiredTarget (t, null);
+}
+
+bool StimpackActivate(bool testConditions, bool runActions) {
+	
+	
+	string currentUnit = UnitGetType(EventUnit());
+	order stim = Order(AbilityCommand("Stimpack",0));
+	
+	if(currentUnit == "Marine" && UnitGetCooldown(EventUnit(), "Stimpack") < 1) {
+		UnitIssueOrder((EventUnit()), stim, c_orderQueueAddToFront);
+		UnitAddCooldown (EventUnit(), "Stimpack", 10);
+	}
+	
+	return true;
+}

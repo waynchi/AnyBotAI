@@ -1,0 +1,39 @@
+void StutterStepUnitStutter(unit me, unit enemy){
+    point enemyPosition=UnitGetPosition(enemy);
+    point ourPosition=UnitGetPosition(me);
+    fixed x1=PointGetX(ourPosition);
+    fixed y1=PointGetY(ourPosition);
+    fixed x2=PointGetX(enemyPosition);
+    fixed y2=PointGetY(enemyPosition);
+    point target;
+
+    fixed x;
+    fixed y;
+    fixed k;
+    fixed distance;
+    distance=SquareRoot(Pow(x1-x2, 2)+Pow(y1-y2, 2));
+    k=(y2-y1)/(x2-x1);
+
+    if(x1<x2){
+      x=x1-2/SquareRoot(1+k*k);
+    }else{
+      x=x1+2/SquareRoot(1+k*k);
+    }
+    y=k*(x-x1)+y1;
+    target=Point(x, y);
+    if(distance>=3){
+      UnitIssueOrder(me, OrderTargetingUnit(AbilityCommand("attack", 0), enemy), c_orderQueueAddToFront);
+      UnitIssueOrder(me, OrderTargetingPoint(AbilityCommand("move", 0), target), c_orderQueueAddToFront);
+    }else{
+        UnitIssueOrder(me, OrderTargetingUnit(AbilityCommand("attack", 0), enemy), c_orderQueueAddToFront);
+    }
+
+}
+void StutterStepGroupStutter(string mygroupName, unit enemy){
+  int i;
+  for(i=0; i<1000; i+=1){
+    if(gMyUnitList[i].groupName==mygroupName){//gMyUnitList[i]==null||
+      StutterStepUnitStutter(gMyUnitList[i].friendly, enemy);
+    }
+  }
+}

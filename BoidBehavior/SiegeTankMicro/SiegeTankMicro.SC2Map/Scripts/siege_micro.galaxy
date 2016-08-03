@@ -1,0 +1,40 @@
+include "TriggerLibs/NativeLib"
+
+trigger gTriggerUnitRangePoint;
+unitfilter gFilter = UnitFilter(0,
+                                  0,
+                                  (1 << c_targetFilterMissile),
+                                  (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+
+void defendPoint(point p)
+{
+  // Order move towards point
+  UnitGroupIssueOrder(UnitGroup("SiegeTank", 1, RegionEntireMap(), gFilter, 0),
+                        OrderTargetingPoint(AbilityCommand("move", 0), p),
+                        c_orderQueueReplace);
+
+  // Siege when in range
+  //TriggerDestroy(gTriggerUnitRangePoint);
+  gTriggerUnitRangePoint = TriggerCreate("OnUnitRangePoint");
+  TriggerAddEventUnitRangePoint(gTriggerUnitRangePoint,
+                                  null,
+                                  p,
+                                  13,
+                                  true);
+}
+
+bool OnUnitRangePoint(bool checkConds, bool runActions)
+{
+  unit enteringUnit = EventUnit();
+
+  if (UnitGetType(enteringUnit) == "SiegeTank")
+  {
+    UnitIssueOrder(enteringUnit, Order(AbilityCommand("SiegeMode", 0)), c_orderQueueReplace);
+  }
+  else
+  {
+    // do nothing
+  }
+
+  return true;
+}

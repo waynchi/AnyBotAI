@@ -1,0 +1,99 @@
+bool FocusFireOnUnitRange(bool checkConds, bool runActions)
+{
+    unit originatingUnit = EventUnitRangeUnit();
+    unit enteringUnit = EventUnit();
+    int i = 0;
+    int myUnitIndex = 0;
+    int enemyUnitIndex = 0;
+
+    // First check that the entering unit is not ours or an enemy structure
+    if (UtilsIsUnitMyUnit(enteringUnit) || UtilsIsUnitMyStructure(enteringUnit) || UtilsIsUnitEnemyStructure(enteringUnit)) {
+        return true;
+    }
+
+    // Now check that the originating unit is ours
+    if (!UtilsIsUnitMyUnit(originatingUnit)) {
+        return true;
+    }
+
+    // Now check that the unit is not already assigned
+    i = 0;
+    for (; i < gMyUnitCount; i += 1) {
+        if (gMyUnitList[i].friendly == originatingUnit) {
+            myUnitIndex = i;
+            if (gMyUnitList[i].ffAssigned) {
+                return true;
+            }
+        }
+    }
+
+    // Now check that the enemy unit isn't already taken care of
+    i = 0;
+    for (; i < gEnemyUnitCount; i += 1) {
+        if (gEnemyUnitList[i].enemy == enteringUnit) {
+            enemyUnitIndex = i;
+            if (gEnemyUnitList[i].assignedDamage >= UnitGetPropertyFixed(gEnemyUnitList[i].enemy, c_unitPropLife, true)) {
+                return true;
+            }
+        }
+    }
+
+    // We know that our unit is unassigned and the enemy unit is capable of taking an assignment, so assign our unit
+    UnitIssueOrder(originatingUnit, OrderTargetingUnit(AbilityCommand("attack", 0), enteringUnit), c_orderQueueAddToFront);
+    gMyUnitList[myUnitIndex].ffAssigned = true;
+    gEnemyUnitList[enemyUnitIndex].assignedDamage += (UnitWeaponDamage(originatingUnit, 1, c_unitAttributeNone, false) * UnitWeaponSpeedMultiplier(originatingUnit, 1) * 0.5) - (UnitGetPropertyFixed(enteringUnit, c_unitPropLifeArmor, c_unitPropCurrent) + UnitGetPropertyFixed(enteringUnit, c_unitPropShieldArmor, c_unitPropCurrent) + UnitGetPropertyFixed(enteringUnit, c_unitPropEnergyArmor, c_unitPropCurrent));
+
+    return true;
+}
+
+bool FocusFireOnUnitAttacked(bool checkConds, bool runActions) {
+  unit attackingUnit = EventUnitTarget();
+  unit triggeringUnit = EventUnit();
+  int i = 0;
+  fixed myDamage = (UnitWeaponDamage(attackingUnit, 1, c_unitAttributeNone, false) * UnitWeaponSpeedMultiplier(attackingUnit, 1) * 0.5) - (UnitGetPropertyFixed(triggeringUnit, c_unitPropLifeArmor, c_unitPropCurrent) + UnitGetPropertyFixed(triggeringUnit, c_unitPropShieldArmor, c_unitPropCurrent) + UnitGetPropertyFixed(triggeringUnit, c_unitPropEnergyArmor, c_unitPropCurrent));
+  int myUnitIndex = 0;
+
+  // Check if this is our unit
+  if (!UtilsIsUnitMyUnit(attackingUnit)) {
+    return true;
+  }
+
+  // First check if your enemy is defeated
+  if (UnitGetPropertyFixed(triggeringUnit, c_unitPropLife, true) > 0) {
+      // The enemy is not dead, so we should see if we are still needed on this units
+      i = 0;
+      for (; i < gEnemyUnitCount; i += 1) {
+          if (gEnemyUnitList[i].enemy == triggeringUnit) {
+              if (gEnemyUnitList[i].assignedDamage - myDamage < UnitGetPropertyFixed(triggeringUnit, c_unitPropLife, true)) {
+                  // We are still needed on this unit
+                  return true;
+              }
+          }
+      }
+  }
+
+  // Next set yourself as unassigned
+  i = 0;
+  for (; i < gMyUnitCount; i += 1) {
+    if (gMyUnitList[i].friendly == attackingUnit) {
+        myUnitIndex = i;
+        gMyUnitList[i].ffAssigned = false;
+    }
+  }
+
+  // Next pick a new enemy if any are in range
+  i = 0;
+  for (; i < gEnemyUnitCount; i += 1) {
+      if (UnitIsAlive(gEnemyUnitList[i].enemy) && DistanceBetweenPoints(UnitGetPosition(attackingUnit), UnitGetPosition(gEnemyUnitList[i].enemy)) <= UnitWeaponRange(attackingUnit, 1)) {
+          // Enemy is in range, lets see if they are alive and if they should be attacked
+          if (gEnemyUnitList[i].assignedDamage < UnitGetPropertyFixed(gEnemyUnitList[i].enemy, c_unitPropLife, true)) {
+              // The unit is not assigned enough damage to kill it, this is an assignable unit
+              gEnemyUnitList[i].assignedDamage += myDamage;
+              gMyUnitList[myUnitIndex].ffAssigned = true;
+              UnitIssueOrder(attackingUnit, OrderTargetingUnit(AbilityCommand("attack", 0), gEnemyUnitList[i].enemy), c_orderQueueAddToFront);
+          }
+      }
+  }
+
+  return true;
+}

@@ -1,0 +1,137 @@
+include "TriggerLibs/NativeLib"
+include "scripts/blackboard"
+include "scripts/utils"
+include "scripts/macro"
+include "scripts/marinerush"
+
+void RegisterTriggers()
+{
+    // General Utils triggers
+    trigger t = TriggerCreate("UtilsOnUnitCreated");
+    TriggerAddEventUnitCreated(t, null, null, null);
+    t = TriggerCreate("UtilsOnUnitDied");
+    TriggerAddEventUnitDied(t, null);
+
+    // Macro triggers
+    t = TriggerCreate("MacroOnMineralsPropertyChanged");
+    TriggerAddEventPlayerPropChange(t, gTeamNumber, c_playerPropMinerals);
+
+    // Spread micro triggers
+    //trigger t = TriggerCreate("SpreadOnUnitDeath");
+    //TriggerAddEventUnitDied(t, null); // null here means any unit.
+    //t = TriggerCreate("SpreadOnUnitCreated");
+    //TriggerAddEventUnitCreated(t, null, null, null); // trigger, creator, ability, behavior
+    //t = TriggerCreate("SpreadOnUnitAttacked");
+    //TriggerAddEventUnitAttacked2(t, null, null);
+
+    // Focus fire micro triggers
+}
+
+void mapInitiated() {
+    // Scenario set-up local variables
+
+    // Register our triggers so that we can see when events occur in the gameplay
+    RegisterTriggers();
+
+    // Initialize global arrays
+    //// Possible terran units
+    gMyPossibleUnits[0] = "Banshee";
+    gMyPossibleUnits[1] = "Battlecruiser";
+    gMyPossibleUnits[2] = "Cyclone";
+    gMyPossibleUnits[3] = "Ghost";
+    gMyPossibleUnits[4] = "Hellbat(BattleMode)";
+    gMyPossibleUnits[5] = "Hellion";
+    gMyPossibleUnits[6] = "HERC";
+    gMyPossibleUnits[7] = "Liberator(AA)";
+    gMyPossibleUnits[8] = "Liberator(AG)";
+    gMyPossibleUnits[9] = "Marauder";
+    gMyPossibleUnits[10] = "Marine";
+    gMyPossibleUnits[11] = "Medivac";
+    gMyPossibleUnits[12] = "MULE";
+    gMyPossibleUnits[13] = "PointDefenseDrone";
+    gMyPossibleUnits[14] = "Raven";
+    gMyPossibleUnits[15] = "Reaper";
+    gMyPossibleUnits[16] = "SCV";
+    gMyPossibleUnits[17] = "SeekerMissle";
+    gMyPossibleUnits[18] = "SiegeTank(SiegeMode)";
+    gMyPossibleUnits[19] = "SiegeTank(TankMode)";
+    gMyPossibleUnits[20] = "Thor-ExplosivePaylodeMode";
+    gMyPossibleUnits[21] = "Thor-HighImpactMode";
+    gMyPossibleUnits[22] = "Viking(AssaultMode)";
+    gMyPossibleUnits[23] = "Viking(FighterMode)";
+    //// Possible terran structures
+    gMyPossibleStructures[0] = "Armory";
+    gMyPossibleStructures[1] = "Auto-Turret";
+    gMyPossibleStructures[2] = "Barracks";
+    gMyPossibleStructures[3] = "Barracks(Flying)";
+    gMyPossibleStructures[4] = "EngineeringBay";
+    gMyPossibleStructures[5] = "Bunker";
+    gMyPossibleStructures[6] = "CommandCenter";
+    gMyPossibleStructures[7] = "CommandCenter(Flying)";
+    gMyPossibleStructures[8] = "Factory";
+    gMyPossibleStructures[9] = "Factory(Flying)";
+    gMyPossibleStructures[10] = "FusionCore";
+    gMyPossibleStructures[11] = "GhostAcademy";
+    gMyPossibleStructures[12] = "MissleTurret";
+    gMyPossibleStructures[13] = "OrbitalCommand";
+    gMyPossibleStructures[14] = "OrbitalCommand(Flying)";
+    gMyPossibleStructures[15] = "PlanetaryFortress";
+    gMyPossibleStructures[16] = "Reactor";
+    gMyPossibleStructures[17] = "Reactor(Barracks)";
+    gMyPossibleStructures[18] = "Reactor(Factory)";
+    gMyPossibleStructures[19] = "Reactor(Starport)";
+    gMyPossibleStructures[20] = "Refinery";
+    gMyPossibleStructures[21] = "SensorTower";
+    gMyPossibleStructures[22] = "Starport";
+    gMyPossibleStructures[23] = "Starport(Flying)";
+    gMyPossibleStructures[24] = "SupplyDepot";
+    gMyPossibleStructures[25] = "SupplyDepot(Flying)";
+    gMyPossibleStructures[26] = "TechLab";
+    gMyPossibleStructures[27] = "TechLab(Barracks)";
+    gMyPossibleStructures[28] = "TechLab(Factory)";
+    gMyPossibleStructures[29] = "TechLab(Starport)";
+    //// Possible zerg structures
+    gEnemyPossibleStructures[0] = "BanelingNest";
+    gEnemyPossibleStructures[1] = "CreepTower";
+    gEnemyPossibleStructures[2] = "CreepTumor(Burrowed)";
+    gEnemyPossibleStructures[3] = "EvolutionChamber";
+    gEnemyPossibleStructures[4] = "Extractor";
+    gEnemyPossibleStructures[5] = "GreaterSpire";
+    gEnemyPossibleStructures[6] = "Hatchery";
+    gEnemyPossibleStructures[7] = "Hive";
+    gEnemyPossibleStructures[8] = "HydraliskDen";
+    gEnemyPossibleStructures[9] = "InfestationPit";
+    gEnemyPossibleStructures[10] = "Lair";
+    gEnemyPossibleStructures[11] = "LurkerDen";
+    gEnemyPossibleStructures[12] = "NydusDestroyer";
+    gEnemyPossibleStructures[13] = "NydusNetwork";
+    gEnemyPossibleStructures[14] = "NydusWorm(Canal)";
+    gEnemyPossibleStructures[15] = "RoachWarren";
+    gEnemyPossibleStructures[16] = "SpawningPool";
+    gEnemyPossibleStructures[17] = "SpineCrawler";
+    gEnemyPossibleStructures[18] = "SpineCrawler(Uprooted)";
+    gEnemyPossibleStructures[19] = "Spire";
+    gEnemyPossibleStructures[20] = "SporeCrawler";
+    gEnemyPossibleStructures[21] = "SporeCrawler(Uprooted)";
+    gEnemyPossibleStructures[22] = "UltraliskCavern";
+
+    // Set up scenario
+    //// Edit this to create the units that are necessary for your specific behavior test
+    //UnitCreate(16, "Marine", c_unitCreateIgnorePlacement, 1, PointFromName("CameraStart"), 270.0);
+    //UnitCreate(10, "Zergling", c_unitCreateIgnorePlacement, 2, PointFromName("EnemyStart"), 270.0);
+    //// This is the normal scenario for typical gameplay
+    ////// LEAVE THIS COMMENTED OUT FOR TESTING SCENARIOS
+    //////// Create the Hatchery and Drones for the human player
+    UnitCreate(1, "Hatchery", c_unitCreateIgnorePlacement, (3 - gTeamNumber), PointFromName("HumanStart"), 270.0);
+    UnitCreate(1, "Overlord", 0, (3 - gTeamNumber), PointFromName("HumanStart"), 270.0);
+    UnitCreate(12, "Drone", 0, (3 - gTeamNumber), PointFromName("HumanStart"), 270.0);
+    //////// Create the Command Center and SCV's for AnyBot
+    UnitCreate(1, "CommandCenter", c_unitCreateIgnorePlacement, gTeamNumber, PointFromName("AnyBotStart"), 270.0);
+    UnitCreate(1, "SupplyDepot", 0, gTeamNumber, UnitTypePlacementFromPoint("SupplyDepot", 2, PointFromName("SupplyDepots"), 20), 270.0);
+    //UnitCreate(1, "Barracks", 0, gTeamNumber, UnitTypePlacementFromPoint("Barracks", 2, PointFromName("Barracks"), 20), 270.0);
+    UnitCreate(12, "SCV", 0, gTeamNumber, PointFromName("AnyBotStart"), 270.0);
+
+    // Set up our strategy for basic runActions
+    //// LEAVE THIS COMMENTED OUT FOR FINAL VERSIONS
+    MarineRushSetupBuildOrder();
+}

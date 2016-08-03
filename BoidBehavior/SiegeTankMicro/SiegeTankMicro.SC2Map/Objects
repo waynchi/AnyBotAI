@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlacedObjects Version="27">
+    <ObjectUnit Id="27" Position="72.1027,63.9064,0" Rotation="3.4245" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="28" Position="71.6674,61.9233,0" Rotation="3.6005" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="31" Position="71.812,59.8425,0" Rotation="5.6604" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="32" Position="71.6315,58.814,0" Rotation="5.1616" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="33" Position="71.0986,60.8508,0" Rotation="0.307" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="34" Position="71.3508,63.3442,0" Rotation="5.8286" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="35" Position="71.3342,65.2907,0" Rotation="4.4995" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="36" Position="71.9907,64.9072,0" Rotation="1.3576" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="37" Position="70.7795,62.2382,0" Rotation="5.998" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="38" Position="70.821,59.9235,0" Rotation="3.9768" Scale="1,1,1" UnitType="Marine" Player="1"/>
+    <ObjectUnit Id="23" Position="24.2224,62.9665,0" Rotation="1.2424" Scale="1,1,1" UnitType="Roach" Player="2"/>
+    <ObjectUnit Id="24" Position="23.1916,64.0935,0" Rotation="2.4924" Scale="1,1,1" UnitType="Roach" Player="2"/>
+    <ObjectUnit Id="25" Position="22.986,65.8066,0" Rotation="6.202" Scale="1,1,1" UnitType="Roach" Player="2"/>
+    <ObjectUnit Id="26" Position="22.9211,67.6206,0" Rotation="4.5012" Scale="1,1,1" UnitType="Roach" Player="2"/>
+    <ObjectUnit Id="29" Position="22.1904,63.9501,0" Rotation="4.914" Scale="1,1,1" UnitType="Roach" Player="2"/>
+    <ObjectUnit Id="30" Position="22.4675,62.801,0" Rotation="4.6096" Scale="1,1,1" UnitType="Roach" Player="2"/>
+    <ObjectUnit Id="1" Position="77.8371,57.9914,0" Rotation="4.0251" Scale="1,1,1" UnitType="SiegeTank" Player="1"/>
+    <ObjectUnit Id="2" Position="82.123,56.0961,0" Rotation="5.2702" Scale="1,1,1" UnitType="SiegeTank" Player="1"/>
+    <ObjectUnit Id="6" Position="79.8127,65.3186,0" Rotation="1.7656" Scale="1,1,1" UnitType="SiegeTank" Player="1"/>
+    <ObjectUnit Id="7" Position="24.8383,66.8891,0" Rotation="2.3425" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="8" Position="24.9265,65.8974,0" Rotation="3.489" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="9" Position="25.1601,64.9375,0" Rotation="0.6506" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="10" Position="25.6567,65.715,0" Rotation="4.0981" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="11" Position="25.6914,66.7941,0" Rotation="4.0385" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="12" Position="25.939,64.997,0" Rotation="5.2487" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="13" Position="25.4897,63.8691,0" Rotation="4.0222" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="14" Position="26.3044,64.0366,0" Rotation="5.3732" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="15" Position="26.0974,63.0224,0" Rotation="2.005" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="16" Position="25.4311,62.6665,0" Rotation="5.616" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="17" Position="24.7341,63.723,0" Rotation="3.4514" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="18" Position="24.4313,64.4692,0" Rotation="1.747" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="19" Position="24.1855,65.5644,0" Rotation="1.922" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="20" Position="24.0046,66.5756,0" Rotation="1.4621" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="21" Position="26.5341,66.5756,0" Rotation="6.0427" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="22" Position="26.6613,65.6555,0" Rotation="3.6572" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="44" Position="26.7094,61.2817,0" Rotation="1.6464" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="45" Position="26.9711,64.8894,0" Rotation="1.761" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="46" Position="27.2385,62.452,0" Rotation="1.093" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="47" Position="27.7214,63.2763,0" Rotation="3.9562" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="48" Position="27.2761,66.3813,0" Rotation="0.81" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="49" Position="27.102,67.3742,0" Rotation="0.2668" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="50" Position="26.3564,67.6472,0" Rotation="2.3474" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="51" Position="25.5314,68.0175,0" Rotation="1.3371" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="52" Position="24.7692,68.1098,0" Rotation="6.2441" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="53" Position="25.23,61.5622,0" Rotation="2.1816" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="54" Position="24.1733,62.0034,0" Rotation="2.0334" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="56" Position="27.1655,68.5756,0" Rotation="0.2668" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="57" Position="25.9216,69.1875,0" Rotation="5.7236" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="58" Position="25.071,69.1875,0" Rotation="1.6013" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectUnit Id="59" Position="27.942,68.0625,0" Rotation="3.6684" Scale="1,1,1" UnitType="Zergling" Player="2"/>
+    <ObjectPoint Id="3" Position="63.3393,62.6096,0" Scale="1,1,1" Type="Normal" Name="SiegePoint" Color="0,0,0,0"/>
+    <ObjectPoint Id="4" Position="25.0744,64.7731,0" Scale="1,1,1" Type="Normal" Name="ExpectedEnemy" Color="0,0,0,0"/>
+    <ObjectPoint Id="40" Position="83.5,61.5,0" Scale="1,1,1" Type="StartLoc" Name="Terran Start Location" Color="0,0,0,0"/>
+    <ObjectPoint Id="41" Position="16.5,66.5,0" Scale="1,1,1" Type="StartLoc" Name="Zerg Start Location" Color="0,0,0,0"/>
+    <ObjectCamera Id="39" Position="59.005,61.2854,0" Rotation="3.1408" Scale="1,1,1" Name="Camera 001" Color="0,0,0,0" CameraTarget="59.005,61.2854">
+        <CameraValue Index="FieldOfView" Value="27.7998"/>
+        <CameraValue Index="NearClip" Value="0.0998"/>
+        <CameraValue Index="FarClip" Value="600"/>
+        <CameraValue Index="ShadowClip" Value="75"/>
+        <CameraValue Index="Distance" Value="80.1701"/>
+        <CameraValue Index="Pitch" Value="56"/>
+        <CameraValue Index="Yaw" Value="179.9724"/>
+        <CameraValue Index="FocalDepth" Value="8"/>
+        <CameraValue Index="FalloffEnd" Value="8"/>
+    </ObjectCamera>
+</PlacedObjects>

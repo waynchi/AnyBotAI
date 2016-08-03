@@ -1,0 +1,4 @@
+﻿CustomScript/Name/725435F8=Main
+Trigger/Name/0A0F805A=Init
+Trigger/Name/4C507A92=AnyBotWin
+Trigger/Name/6C38C625=AnyBotLose

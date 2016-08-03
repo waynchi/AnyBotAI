@@ -1,0 +1,15 @@
+[Terrain]
+id=BelShir
+path=Assets\Textures\.dds
+asset=CreepEdgeNormal,CreepHeight,CreepNoise,CreepSpecularMask,Creep_##id##
+Light
+Model=##id##SkyBox
+Soundtrack=Ambience_##id##
+TerrainTex=##id##BricksLarge,##id##BricksSmall,##id##Brush,##id##DirtDark,##id##DirtLight,##id##GrassDark,##id##GrassLight,##id##SmallTiles
+
+[Water]
+id=Template 1
+asset=Assets\Textures\DefaultWater.dds
+Model=BelShirBeachShoreline,BelShirCliffShoreline,BelShirWaterDoodadLilyPad,DefaultLava
+Sound=Emitter_WaterCalm
+

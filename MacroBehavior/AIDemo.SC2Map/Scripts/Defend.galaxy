@@ -1,0 +1,24 @@
+void DefendRegisterTriggers() {
+    trigger t = TriggerCreate("DefendOnUnitAttacked");
+    TriggerAddEventUnitAttacked2(t, null, null);
+}
+
+bool DefendOnUnitAttacked(bool checkConds, bool runActions) {
+    int i = 0;
+    bool shouldDefend = false;
+    string attackedUnitType = UnitGetType(EventUnit());
+
+    if (attackedUnitType == "CommandCenter" || attackedUnitType == "Barracks") {
+        shouldDefend = true;
+    }
+
+    if (shouldDefend) {
+        for (; i < gMyUnitGroupCount; i += 1) {
+            if (StringContains(gMyUnitGroupList[i].groupName, "AttackWave", 0, false)) {
+                UnitGroupIssueOrder(gMyUnitGroupList[i].group, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueAddToFront);
+            }
+        }
+    }
+
+    return true;
+}

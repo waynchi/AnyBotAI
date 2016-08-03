@@ -1,0 +1,127 @@
+include "TriggerLibs/NativeLib"
+
+int gTeamNumber = 1;
+int gMyUnitCount = 0;
+unit[1000] gMyUnitList;
+int gOtherUnitCount = 0;
+unit[1000] gOtherUnitList;
+string[24] gMyPossibleUnits;
+
+
+void RegisterTriggers()
+{
+  trigger t = TriggerCreate("OnUnitDeath");
+  TriggerAddEventUnitDied(t, null); // null here means any unit.
+  t = TriggerCreate("OnUnitCreated");
+  TriggerAddEventUnitCreated(t, null, null, null); // trigger, creator, ability, behavior
+
+
+}
+
+void mapInitiated() {
+  int i = 0;
+
+  RegisterTriggers();
+
+  // Initialize globals
+  gMyPossibleUnits[0] = "Banshee";
+  gMyPossibleUnits[1] = "Battlecruiser";
+  gMyPossibleUnits[2] = "Cyclone";
+  gMyPossibleUnits[3] = "Ghost";
+  gMyPossibleUnits[4] = "Hellbat (Battle Mode)";
+  gMyPossibleUnits[5] = "Hellion";
+  gMyPossibleUnits[6] = "HERC";
+  gMyPossibleUnits[7] = "Liberator (AA)";
+  gMyPossibleUnits[8] = "Liberator (AG)";
+  gMyPossibleUnits[9] = "Marauder";
+  gMyPossibleUnits[10] = "Marine";
+  gMyPossibleUnits[11] = "Medivac";
+  gMyPossibleUnits[12] = "MULE";
+  gMyPossibleUnits[13] = "Point Defense Drone";
+  gMyPossibleUnits[14] = "Raven";
+  gMyPossibleUnits[15] = "Reaper";
+  gMyPossibleUnits[16] = "SCV";
+  gMyPossibleUnits[17] = "Seeker Missle";
+  gMyPossibleUnits[18] = "Siege Tank (Siege Mode)";
+  gMyPossibleUnits[19] = "Siege Tank (Tank Mode)";
+  gMyPossibleUnits[20] = "Thor - Explosive Paylode Mode";
+  gMyPossibleUnits[21] = "Thor - High Impact Mode";
+  gMyPossibleUnits[22] = "Viking (Assault Mode)";
+  gMyPossibleUnits[23] = "Viking (Fighter Mode)";
+
+  UnitCreate(20, "Marine", c_unitCreateIgnorePlacement, 1, PointFromName("CameraStart"), 270.0);
+  //UnitCreate(3, "Marauder", c_unitCreateIgnorePlacement, 1, PointFromName("CameraStart"), 270.0);
+  UnitCreate(5, "Queen", c_unitCreateIgnorePlacement, 2, PointFromName("EnemyStart"), 270.0);
+
+}
+
+bool OnUnitDeath(bool checkConds, bool runActions)
+{
+     unit dyingUnit = EventUnit(); // the unit that just died.
+     string unitType = UnitGetType( dyingUnit );
+     text unitName = UnitTypeGetName( unitType );
+
+     //UIDisplayMessage( PlayerGroupAll(), c_messageAreaChat, unitName );
+     return true;
+}
+
+bool OnUnitCreated(bool checkConds, bool runActions)
+{
+  unit createdUnit = EventUnitCreatedUnit();
+  string unitType = UnitGetType(createdUnit);
+  text unitName = UnitGetName(createdUnit);
+  bool isMine = false;
+  int i = 0;
+  trigger t;
+  i = 0;
+  for (; i < 24; i += 1) {
+    if (unitType == gMyPossibleUnits[i]) {
+      isMine = true;
+    }
+  }
+
+  if (isMine)
+  {
+    gMyUnitList[gMyUnitCount] = createdUnit;
+    gMyUnitCount += 1;
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Units : " + IntToString(gMyUnitCount)));
+    t = TriggerCreate("OnUnitAttack");
+    TriggerAddEventUnitRange(t, null, createdUnit, 10.0, true);
+    
+
+  } else {
+    gOtherUnitList[gOtherUnitCount] = createdUnit;
+    gOtherUnitCount += 1;
+    }
+
+  return true;
+}
+
+
+bool OnUnitAttack(bool checkConds, bool runActions)
+{
+  unit enteringUnit = EventUnit();
+  int i = 0;
+  fixed enteringX;
+  fixed enteringY;
+  int groupSize;
+  int numGroups = 4;
+  trigger t;
+  
+  //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Units in group: " + IntToString(gMyUnitCount)));
+  
+    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("Units in group: " + IntToString(currentUnitGroupCount)));
+    groupSize = (gMyUnitCount / 4);
+    if (gMyUnitCount % 4 != 0) {
+      numGroups += 1;
+    }
+    enteringX = (PointGetX(UnitGetPosition(enteringUnit)));
+    enteringY = (PointGetY(UnitGetPosition(enteringUnit)));
+    i = 0;
+    for (; i < gMyUnitCount; i += 1) {
+      UnitIssueOrder(gMyUnitList[i], OrderTargetingPoint(AbilityCommand("move", 0), Point(enteringX + (4 * Cos( (40 * (i%groupSize)))), enteringY + (4  * Sin( (40 * (i%groupSize)))))), c_orderQueueReplace);
+    } 
+     
+  return true;
+}
+
